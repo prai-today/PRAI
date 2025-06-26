@@ -97,7 +97,7 @@ export function Hero() {
                     <Globe className="w-6 h-6 text-gray-400 ml-4" />
                     <input
                       type="url"
-                      placeholder="Enter your website URL"
+                      placeholder="Enter your website URL here"
                       value={url}
                       onChange={(e) => setUrl(e.target.value)}
                       className="flex-1 py-4 px-2 text-lg bg-transparent border-none outline-none placeholder-gray-400"
