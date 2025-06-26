@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { AuthForm } from '../components/AuthForm';
+import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
 export function AuthPage() {
@@ -43,6 +44,7 @@ export function AuthPage() {
 
   return (
     <div>
+      <Header />
       <AuthForm mode={mode} redirectUrl={redirectUrl} />
       <Footer />
     </div>

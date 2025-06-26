@@ -83,38 +83,52 @@ export function Header() {
               </button>
             </div>
           ) : (
-            <div className="hidden md:flex items-center space-x-3 sm:space-x-4">
-              <a
-                href="/auth"
-                className="text-gray-700 hover:text-gray-900 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium transition-colors"
-              >
-                Sign In
-              </a>
-              <a
-                href="/auth?mode=signup"
-                className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-4 sm:px-6 py-2 rounded-lg text-xs sm:text-sm font-medium hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                <span className="hidden sm:inline">Get Started</span>
-                <span className="sm:hidden">PRAI</span>
-              </a>
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              {/* Desktop Navigation for Non-authenticated Users */}
+              <div className="hidden md:flex items-center space-x-3 sm:space-x-4">
+                <a
+                  href="/auth"
+                  className="text-gray-700 hover:text-gray-900 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium transition-colors"
+                >
+                  Sign In
+                </a>
+                <a
+                  href="/auth?mode=signup"
+                  className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-4 sm:px-6 py-2 rounded-lg text-xs sm:text-sm font-medium hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Get Started
+                </a>
+              </div>
+
+              {/* Mobile Get Started Button for Non-authenticated Users */}
+              <div className="md:hidden">
+                <a
+                  href="/auth?mode=signup"
+                  className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-4 py-2 rounded-lg text-xs font-medium hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Get Started
+                </a>
+              </div>
+
+              {/* Mobile menu button - only show for authenticated users */}
+              {user && (
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+                >
+                  {mobileMenuOpen ? (
+                    <X className="w-5 h-5" />
+                  ) : (
+                    <Menu className="w-5 h-5" />
+                  )}
+                </button>
+              )}
             </div>
           )}
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
-          >
-            {mobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </button>
         </div>
 
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
+        {/* Mobile menu - only show for authenticated users */}
+        {mobileMenuOpen && user && (
           <div className="md:hidden border-t border-gray-200 py-4">
             {/* Mobile Navigation */}
             {navigation.length > 0 && (
@@ -136,42 +150,23 @@ export function Header() {
               </nav>
             )}
 
-            {user ? (
-              <div className="space-y-4 border-t border-gray-200 pt-4">
-                <div className="text-sm text-gray-800 font-medium px-3">
-                  {profile?.full_name || user.email}
-                </div>
-                <div className="text-sm text-gray-600 bg-gradient-to-r from-green-50 to-teal-50 px-3 py-2 rounded-lg border border-green-200 mx-3">
-                  <span className="text-green-700 font-semibold">
-                    {profile?.free_publications_remaining || 0} prayers left
-                  </span>
-                </div>
-                <button
-                  onClick={handleSignOut}
-                  className="flex items-center space-x-2 px-3 py-2 text-sm text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors w-full mx-3"
-                >
-                  <LogOut className="w-4 h-4" />
-                  <span>Sign Out</span>
-                </button>
+            <div className="space-y-4 border-t border-gray-200 pt-4">
+              <div className="text-sm text-gray-800 font-medium px-3">
+                {profile?.full_name || user.email}
               </div>
-            ) : (
-              <div className="space-y-3 border-t border-gray-200 pt-4">
-                <a
-                  href="/auth"
-                  className="block text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Sign In
-                </a>
-                <a
-                  href="/auth?mode=signup"
-                  className="block bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all text-center mx-3"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Get Started
-                </a>
+              <div className="text-sm text-gray-600 bg-gradient-to-r from-green-50 to-teal-50 px-3 py-2 rounded-lg border border-green-200 mx-3">
+                <span className="text-green-700 font-semibold">
+                  {profile?.free_publications_remaining || 0} prayers left
+                </span>
               </div>
-            )}
+              <button
+                onClick={handleSignOut}
+                className="flex items-center space-x-2 px-3 py-2 text-sm text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors w-full mx-3"
+              >
+                <LogOut className="w-4 h-4" />
+                <span>Sign Out</span>
+              </button>
+            </div>
           </div>
         )}
       </div>
