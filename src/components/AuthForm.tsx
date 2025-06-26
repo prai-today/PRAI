@@ -62,7 +62,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
             
             <div className="flex flex-col">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
-                PR<span className="text-lg">🙏</span>I.today
+                PR<span className="text-xl">🙏</span>I.today
               </h1>
               <span className="text-xs text-gray-500 font-medium -mt-1">
                 Get answered by AI
