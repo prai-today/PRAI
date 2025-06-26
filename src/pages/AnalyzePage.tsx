@@ -8,6 +8,7 @@ import { supabase } from '../lib/supabase';
 interface AnalysisResult {
   core_message: string;
   keywords: string[];
+  selected_sites: number[];
 }
 
 interface PublastSite {
@@ -56,7 +57,7 @@ export function AnalyzePage() {
       const { data: sites, error } = await supabase
         .from('publast_sites')
         .select('id, name, domain, description, category')
-        .limit(5);
+        .order('id');
 
       if (error) {
         throw error;
@@ -64,8 +65,6 @@ export function AnalyzePage() {
 
       if (sites && sites.length > 0) {
         setAvailableSites(sites);
-        // Pre-select first 3 sites
-        setSelectedSites(sites.slice(0, Math.min(3, sites.length)).map(site => site.id));
       }
     } catch (error) {
       console.error('Error loading sites:', error);
@@ -97,6 +96,7 @@ export function AnalyzePage() {
         setAnalysisResult(data.analysis);
         setTempCoreMessage(data.analysis.core_message);
         setTempKeywords([...data.analysis.keywords]);
+        setSelectedSites([...data.analysis.selected_sites]);
       } else {
         throw new Error(data.error || 'Failed to analyze website');
       }
@@ -218,11 +218,11 @@ export function AnalyzePage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="mb-6 sm:mb-8">
           <button
-            onClick={() => window.location.href = '/'}
+            onClick={() => window.location.href = '/dashboard'}
             className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 transition-colors mb-4 sm:mb-6 text-sm sm:text-base"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
+            <span>Back to Dashboard</span>
           </button>
 
           <div className="text-center space-y-3 sm:space-y-4">
@@ -237,7 +237,7 @@ export function AnalyzePage() {
 
             {!analyzing && analysisResult && (
               <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base px-4">
-                Review the AI-generated analysis below. You can edit the core message and keywords before your prayer gets answered by AI systems worldwide.
+                Review the AI-generated analysis below. Gemini has intelligently selected the best publication sites for your content. You can edit everything before your prayer gets answered by AI systems worldwide.
               </p>
             )}
           </div>
@@ -255,7 +255,7 @@ export function AnalyzePage() {
                   Praying for your website analysis... 🙏
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base px-4">
-                  Our AI is comprehensively analyzing your website using Google Gemini 2.0 Flash to understand your product and generate the perfect message for AI recognition.
+                  Our AI is comprehensively analyzing your website using Google Gemini 2.0 Flash to understand your product and intelligently select the best publication sites for maximum AI recognition.
                 </p>
               </div>
               
@@ -417,11 +417,13 @@ export function AnalyzePage() {
             <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6">
               <div className="mb-3 sm:mb-4">
                 <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  Publication Sites <span className="text-xs sm:text-sm text-gray-500">(Select 1-3 sites)</span>
+                  AI-Selected Publication Sites <span className="text-xs sm:text-sm text-gray-500">(Select 1-3 sites)</span>
                 </h2>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  Choose up to 3 sites where your prayer will be answered through strategic publication. 3 sites are pre-selected for optimal AI recognition.
-                </p>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                  <p className="text-xs sm:text-sm text-green-800">
+                    <strong>🤖 AI Intelligence:</strong> Gemini has analyzed your content and intelligently selected the best-fitting publication sites based on your product category, target audience, and content relevance. You can adjust the selection if needed.
+                  </p>
+                </div>
               </div>
 
               {loadingSites ? (
@@ -451,7 +453,14 @@ export function AnalyzePage() {
                               className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                             />
                             <div>
-                              <h3 className="font-medium text-gray-900 text-sm sm:text-base">{site.name}</h3>
+                              <div className="flex items-center space-x-2">
+                                <h3 className="font-medium text-gray-900 text-sm sm:text-base">{site.name}</h3>
+                                {analysisResult.selected_sites.includes(site.id) && (
+                                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    🤖 AI Selected
+                                  </span>
+                                )}
+                              </div>
                               <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 text-xs sm:text-sm text-gray-600">
                                 <span>{site.domain}</span>
                                 <span className="hidden sm:inline">•</span>

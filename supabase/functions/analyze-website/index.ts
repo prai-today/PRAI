@@ -1,10 +1,11 @@
 /*
-  # Enhanced Website Analysis Edge Function
+  # Enhanced Website Analysis Edge Function with Intelligent Site Selection
 
   1. Function Purpose
     - Comprehensively scrapes website content including metadata, text, images, and structure
     - Uses Google Gemini 2.0 Flash for intelligent analysis and structured output
-    - Returns detailed core message and keywords in a structured format for user editing
+    - Intelligently selects the best-fitting 3 sites from available options
+    - Returns detailed core message, keywords, and selected sites in a structured format
 
   2. Security
     - Only accessible to authenticated users
@@ -12,6 +13,8 @@
     - Protects Google Gemini API key
     - Handles CORS properly
 */
+
+import { createClient } from 'npm:@supabase/supabase-js@2';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -28,6 +31,7 @@ interface AnalysisResponse {
   analysis?: {
     core_message: string;
     keywords: string[];
+    selected_sites: number[];
   };
   error?: string;
 }
@@ -49,6 +53,14 @@ interface ScrapedData {
   };
 }
 
+interface PublastSite {
+  id: number;
+  name: string;
+  domain: string;
+  description?: string;
+  category: string;
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, {
@@ -58,6 +70,11 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
+    const supabaseClient = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '',
+    );
+
     const { url }: AnalysisRequest = await req.json();
     
     if (!url || !isValidUrl(url)) {
@@ -72,11 +89,27 @@ Deno.serve(async (req: Request) => {
 
     console.log(`Starting comprehensive analysis for: ${url}`);
 
-    // Step 1: Scrape comprehensive website data
+    // Step 1: Get available sites from database
+    const { data: availableSites, error: sitesError } = await supabaseClient
+      .from('publast_sites')
+      .select('id, name, domain, description, category')
+      .order('id');
+
+    if (sitesError || !availableSites || availableSites.length === 0) {
+      return new Response(
+        JSON.stringify({ success: false, error: "No publication sites available. Please contact support." }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    // Step 2: Scrape comprehensive website data
     const scrapedData = await scrapeWebsiteData(url);
     
-    // Step 2: Analyze with Google Gemini 2.0 Flash (no fallback)
-    const geminiAnalysis = await analyzeWithGemini(scrapedData, url);
+    // Step 3: Analyze with Google Gemini 2.0 Flash including intelligent site selection
+    const geminiAnalysis = await analyzeWithGemini(scrapedData, url, availableSites);
 
     const response: AnalysisResponse = {
       success: true,
@@ -335,9 +368,10 @@ async function scrapeAdditionalPages(baseUrl: string, links: string[]): Promise<
   return additionalContent;
 }
 
-async function analyzeWithGemini(scrapedData: ScrapedData, url: string): Promise<{
+async function analyzeWithGemini(scrapedData: ScrapedData, url: string, availableSites: PublastSite[]): Promise<{
   core_message: string;
   keywords: string[];
+  selected_sites: number[];
 }> {
   const apiKey = Deno.env.get('GOOGLE_GEMINI_API_KEY');
   
@@ -345,8 +379,17 @@ async function analyzeWithGemini(scrapedData: ScrapedData, url: string): Promise
     throw new Error('Google Gemini API key not configured. Please add GOOGLE_GEMINI_API_KEY to your environment variables.');
   }
 
+  // Prepare sites information for Gemini
+  const sitesInfo = availableSites.map(site => ({
+    id: site.id,
+    name: site.name,
+    domain: site.domain,
+    description: site.description || 'No description available',
+    category: site.category
+  }));
+
   const prompt = `
-You are an expert content analyst and marketing strategist. Analyze the following comprehensive website data and provide a structured analysis for content marketing and PR purposes.
+You are an expert content analyst, marketing strategist, and publication specialist. Analyze the following comprehensive website data and provide a structured analysis for content marketing and PR purposes, including intelligent site selection.
 
 Website URL: ${url}
 
@@ -372,12 +415,22 @@ ${scrapedData.structuredData.length > 0 ? JSON.stringify(scrapedData.structuredD
 Images Found: ${scrapedData.images.length}
 Internal Links Found: ${scrapedData.links.length}
 
+AVAILABLE PUBLICATION SITES:
+${sitesInfo.map(site => `
+ID: ${site.id}
+Name: ${site.name}
+Domain: ${site.domain}
+Category: ${site.category}
+Description: ${site.description}
+`).join('\n')}
+
 TASK:
-Based on this comprehensive scraped data, provide a JSON response with exactly this structure:
+Based on this comprehensive scraped data and the available publication sites, provide a JSON response with exactly this structure:
 
 {
   "core_message": "A comprehensive, detailed core message (6-8 sentences minimum) that thoroughly explains this product/service, its unique value proposition, target audience, key features, benefits, and market positioning. This should be publication-ready content that journalists and content creators can use directly in articles.",
-  "keywords": ["exactly 10 highly relevant keywords that best represent this product/service for SEO and content marketing"]
+  "keywords": ["exactly 10 highly relevant keywords that best represent this product/service for SEO and content marketing"],
+  "selected_sites": [array of exactly 3 site IDs that are the best fit for this product/service based on category, audience, and content relevance]
 }
 
 CORE MESSAGE REQUIREMENTS:
@@ -407,6 +460,14 @@ The keywords should be:
 - Consider competitor analysis and market positioning
 - Include industry-specific terminology
 
+SITE SELECTION REQUIREMENTS:
+You must select EXACTLY 3 sites from the available options based on:
+1. **Category Relevance**: Choose sites whose categories best match the product/service type
+2. **Audience Alignment**: Consider which sites would reach the most relevant audience
+3. **Content Fit**: Evaluate which sites would be most appropriate for this type of content
+4. **Domain Authority**: Consider the quality and reputation of the publication sites
+5. **Industry Focus**: Prioritize sites that focus on the relevant industry or sector
+
 ANALYSIS GUIDELINES:
 1. Extract the core business value and unique selling proposition
 2. Identify specific target audience segments and their pain points
@@ -416,6 +477,8 @@ ANALYSIS GUIDELINES:
 6. Make it compelling for business journalists and content creators
 7. Include specific details that make the story newsworthy
 8. Focus on what makes this product/service unique and valuable
+9. Intelligently match the product/service with the most suitable publication sites
+10. Consider the publication sites' audiences and content focus when selecting
 
 Return ONLY the JSON object, no additional text or formatting.
 `;
@@ -469,8 +532,8 @@ Return ONLY the JSON object, no additional text or formatting.
   }
   
   // Validate the response structure
-  if (!analysis.core_message || !analysis.keywords) {
-    throw new Error('Invalid response structure from Gemini. Missing core_message or keywords.');
+  if (!analysis.core_message || !analysis.keywords || !analysis.selected_sites) {
+    throw new Error('Invalid response structure from Gemini. Missing core_message, keywords, or selected_sites.');
   }
 
   // Ensure core message is substantial
@@ -483,8 +546,24 @@ Return ONLY the JSON object, no additional text or formatting.
     throw new Error(`Invalid keywords from Gemini. Expected exactly 10 keywords, got: ${analysis.keywords?.length || 0}`);
   }
 
+  // Ensure selected_sites array is valid and exactly 3 items
+  if (!Array.isArray(analysis.selected_sites) || analysis.selected_sites.length !== 3) {
+    throw new Error(`Invalid selected_sites from Gemini. Expected exactly 3 site IDs, got: ${analysis.selected_sites?.length || 0}`);
+  }
+
+  // Validate that selected site IDs exist in available sites
+  const availableSiteIds = availableSites.map(site => site.id);
+  const invalidSiteIds = analysis.selected_sites.filter(id => !availableSiteIds.includes(id));
+  
+  if (invalidSiteIds.length > 0) {
+    console.warn(`Gemini selected invalid site IDs: ${invalidSiteIds.join(', ')}. Using fallback selection.`);
+    // Fallback to first 3 available sites
+    analysis.selected_sites = availableSiteIds.slice(0, 3);
+  }
+
   return {
     core_message: analysis.core_message,
     keywords: analysis.keywords,
+    selected_sites: analysis.selected_sites,
   };
 }
