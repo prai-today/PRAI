@@ -155,7 +155,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
                   />
                 </div>
                 <p className="text-xs text-gray-500 mt-1">
-                  Your name will be used as the author for published articles
+                  This will be used as the author name for published articles
                 </p>
               </div>
             )}
