@@ -129,7 +129,7 @@ export function Hero() {
               <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <SearchCheck className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Analysis on your page</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Analysis URL</h3>
               <p className="text-gray-600 leading-relaxed">
                 Our AI comprehensively analyzes your website and generates compelling messages that help AI systems understand and recognize your product's unique value.
               </p>
