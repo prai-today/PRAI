@@ -441,7 +441,7 @@ export function AnalyzePage() {
                       key={site.id}
                       className={`border rounded-lg p-3 sm:p-4 cursor-pointer transition-all ${
                         analysisResult.selected_sites.includes(site.id)
-                          ? 'border-indigo-500 bg-indigo-50'
+                          ? selected_sites.includes(site.id) ? 'border-indigo-500 bg-indigo-50': 'border-indigo-50 bg-indigo-50'
                           : 'border-gray-200 hover:border-gray-300 hidden'
                       }`}
                       onClick={() => handleSiteToggle(site.id)}
