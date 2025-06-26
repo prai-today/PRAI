@@ -149,7 +149,7 @@ export function Hero() {
               <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <TrendingUp className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Watch Results Grow ✨</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Publisher</h3>
               <p className="text-gray-600 leading-relaxed">
                 Monitor your prayers being answered in real-time. Track where your content is published and see your AI recognition improve day by day.
               </p>
