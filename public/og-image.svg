@@ -1,0 +1,85 @@
+
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Text gradient -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e0e7ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Prayer hands gradient -->
+    <linearGradient id="prayerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="60" fill="#ffffff" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="80" fill="#ffffff" opacity="0.1"/>
+  <circle cx="200" cy="500" r="40" fill="#a855f7" opacity="0.2"/>
+  <circle cx="1000" cy="150" r="50" fill="#0891b2" opacity="0.2"/>
+  
+  <!-- Sparkles -->
+  <g fill="#ffffff" opacity="0.8">
+    <polygon points="150,200 155,210 165,210 157,218 160,228 150,222 140,228 143,218 135,210 145,210" />
+    <polygon points="1050,300 1055,310 1065,310 1057,318 1060,328 1050,322 1040,328 1043,318 1035,310 1045,310" />
+    <polygon points="300,150 305,160 315,160 307,168 310,178 300,172 290,178 293,168 285,160 295,160" />
+    <polygon points="900,450 905,460 915,460 907,468 910,478 900,472 890,478 893,468 885,460 895,460" />
+  </g>
+  
+  <!-- Main prayer hands emoji (large) -->
+  <text x="600" y="200" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
+        font-size="120" text-anchor="middle" fill="url(#prayerGradient)" filter="url(#glow)">🙏</text>
+  
+  <!-- Main title -->
+  <text x="600" y="280" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" 
+        font-size="72" text-anchor="middle" fill="url(#textGradient)">PR🙏I.TODAY</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="330" font-family="system-ui, -apple-system, sans-serif" font-weight="600" 
+        font-size="36" text-anchor="middle" fill="#e0e7ff">Get Your Product Answered by AI</text>
+  
+  <!-- Description -->
+  <text x="600" y="380" font-family="system-ui, -apple-system, sans-serif" font-weight="400" 
+        font-size="24" text-anchor="middle" fill="#c7d2fe">Pray today → Get answered by AI tomorrow</text>
+  
+  <!-- Call to action -->
+  <rect x="450" y="420" width="300" height="60" rx="30" fill="#ffffff" opacity="0.9"/>
+  <text x="600" y="460" font-family="system-ui, -apple-system, sans-serif" font-weight="600" 
+        font-size="28" text-anchor="middle" fill="#4f46e5">Start Praying Today 🙏</text>
+  
+  <!-- Bottom tagline -->
+  <text x="600" y="550" font-family="system-ui, -apple-system, sans-serif" font-weight="400" 
+        font-size="20" text-anchor="middle" fill="#a5b4fc">For indie builders, SMB owners & startup founders</text>
+  
+  <!-- AI icons -->
+  <text x="200" y="400" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
+        font-size="40" opacity="0.7">🤖</text>
+  <text x="1000" y="250" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
+        font-size="40" opacity="0.7">✨</text>
+  <text x="150" y="550" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
+        font-size="35" opacity="0.6">💫</text>
+  <text x="1050" y="500" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
+        font-size="35" opacity="0.6">🚀</text>
+</svg>
