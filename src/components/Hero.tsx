@@ -162,7 +162,7 @@ export function Hero() {
             <div className="relative">
               <h2 className="text-3xl font-bold mb-4">Ready to PRAI for Recognition?</h2>
               <p className="text-xl mb-6 text-indigo-100">
-                Join thousands of founders whose prayers have been answered by AI systems worldwide
+                Join other builders and founders whose prayers have been answered
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
