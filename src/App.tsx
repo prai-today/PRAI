@@ -6,6 +6,8 @@ import { AuthPage } from './pages/AuthPage';
 import { AnalyzePage } from './pages/AnalyzePage';
 import { StatusPage } from './pages/StatusPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { PrivacyPage } from './pages/PrivacyPage';
+import { TermsPage } from './pages/TermsPage';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/analyze" element={<AnalyzePage />} />
           <Route path="/status/:id" element={<StatusPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Routes>
       </Router>
     </AuthProvider>
