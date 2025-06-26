@@ -72,7 +72,7 @@ export function Footer() {
               <li>
                 <a href="https://twitter.com/praitoday" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2">
                   <FaXTwitter className="w-4 h-4" />
-                  <span>@praitoday</span>
+                  <span>@PRAI_TODAY</span>
                 </a>
               </li>
               <li>
