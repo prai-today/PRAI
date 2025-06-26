@@ -30,7 +30,7 @@ export function Footer() {
             <div className="flex items-center space-x-2 text-gray-400">
               <Heart className="w-4 h-4 text-red-400" />
               <span className="text-sm">
-                Vibe coded with love and prayers for builders worldwide 🙏
+                Bolted with love and prayers for builders worldwide 🙏
               </span>
             </div>
           </div>
