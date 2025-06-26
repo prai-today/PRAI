@@ -116,8 +116,8 @@ export function Hero() {
               
               <p className="text-sm text-gray-500">
                 {user ? 
-                  "Ready to pray for your product's AI recognition today!" :
-                  "Sign up to get 1 free prayer with Google Auth - start today!"
+                  "Ready to PRAI for your product's AI recognition today!" :
+                  "Sign up to get free PRAI with Google Auth - start today!"
                 }
               </p>
             </form>
