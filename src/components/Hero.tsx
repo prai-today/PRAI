@@ -131,7 +131,7 @@ export function Hero() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Analyze URL</h3>
               <p className="text-gray-600 leading-relaxed">
-                Our AI comprehensively analyzes your website and generates compelling messages that help AI systems understand and recognize your product's unique value.
+                Our AI comprehensively analyzes your website and generates effective core message and keywords that help AI systems understand and recognize your product's unique value.
               </p>
             </div>
 
