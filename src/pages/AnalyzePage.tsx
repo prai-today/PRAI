@@ -255,10 +255,10 @@ export function AnalyzePage() {
               
               <div className="space-y-2">
                 <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
-                  Praying for your website analysis... 🙏
+                  Analyzing for your website...
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base px-4">
-                  Our AI is comprehensively analyzing your website using Google Gemini 2.0 Flash to understand your product and intelligently select the best publication sites for maximum AI recognition.
+                  PR AI is analyzing your website to understand your product and intelligently select the best publication sites for maximum AI recognition.
                 </p>
               </div>
               
