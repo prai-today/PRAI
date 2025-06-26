@@ -32,7 +32,7 @@ export function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center space-y-12">
+        <div className="text-center space-y-8">
           {/* Enhanced logo and tagline */}
           <div className="space-y-6">
             <div className="inline-flex items-center space-x-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 border border-purple-200/50 shadow-lg">
