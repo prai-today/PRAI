@@ -59,7 +59,7 @@ export function Hero() {
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                <strong>We</strong> helps builders, SMB owners, and startup founders get their products 
+                <strong>We</strong> helps builders, founders, and SMB owners, and startup founders get their products 
                 answered by AI systems and search engines through intelligent content generation and strategic publication.
               </p>
               
