@@ -434,9 +434,9 @@ export function AnalyzePage() {
                   <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
                   <span className="ml-2 text-gray-600 text-sm sm:text-base">Loading sites...</span>
                 </div>
-              ) : availableSites.length > 0 ? (
+              ) : selectedSites.length > 0 ? (
                 <div className="space-y-2 sm:space-y-3">
-                  {availableSites.map((site) => (
+                  {selectedSites.map((site) => (
                     <div
                       key={site.id}
                       className={`border rounded-lg p-3 sm:p-4 cursor-pointer transition-all ${
