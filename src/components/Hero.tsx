@@ -29,7 +29,7 @@ export function Hero() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-teal-400/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         
         {/* Floating prayer/heart elements */}
-        <div className="absolute top-20 left-20 text-4xl animate-ping" style={{ animationDelay: '0.5s' }}>🙏</div>
+        <div className="absolute top-20 left-20 text-4xl animate-pulse" style={{ animationDelay: '0.5s' }}>🙏</div>
         <div className="absolute top-40 right-32 text-3xl animate-bounce" style={{ animationDelay: '1.5s' }}>💫</div>
         <div className="absolute bottom-32 left-32 text-3xl animate-bounce" style={{ animationDelay: '2.5s' }}>✨</div>
         <div className="absolute bottom-20 right-20 text-4xl animate-bounce" style={{ animationDelay: '3s' }}>🤖</div>
