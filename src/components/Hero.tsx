@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { ArrowRight, Globe, Sparkles, Zap, Target, TrendingUp, Clock, CheckCircle, Heart, MessageCircle } from 'lucide-react';
+import { ArrowRight, Globe, Sparkles, Zap, Target, TrendingUp, Clock, CheckCircle, SearchCheck, Heart, MessageCircle } from 'lucide-react';
 
 export function Hero() {
   const { user } = useAuth();
@@ -127,7 +127,7 @@ export function Hero() {
           <div className="grid md:grid-cols-3 gap-8 mt-16 max-w-6xl mx-auto">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all hover:scale-105 group">
               <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Heart className="w-7 h-7 text-white" />
+                <SearchCheck className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Pray for Analysis 🙏</h3>
               <p className="text-gray-600 leading-relaxed">
