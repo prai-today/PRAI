@@ -444,7 +444,7 @@ export function AnalyzePage() {
                           ? 'block'
                           : 'hidden'
                       } ${selectedSites.includes(site.id) ? 'border-indigo-500 bg-indigo-50'
-                          : 'border-gray-200 hover:border-gray-300 hidden'}`}
+                          : 'border-gray-200 hover:border-gray-300'}`}
                       onClick={() => handleSiteToggle(site.id)}
                     >
                       <div className="flex items-center justify-between">
