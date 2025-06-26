@@ -241,7 +241,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
               disabled={loading || (mode === 'signup' && (!acceptTerms || !fullName.trim()))}
               className="w-full bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-sm sm:text-base"
             >
-              {loading ? 'Please wait...' : mode === 'signup' ? 'Start PRAI Today 🙏' : 'Sign In'}
+              {loading ? 'Please wait...' : mode === 'signup' ? 'Start PRAI Today' : 'Sign In'}
             </button>
           </form>
 
