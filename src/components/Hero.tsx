@@ -160,7 +160,7 @@ export function Hero() {
           <div className="mt-16 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 via-purple-600/20 to-teal-600/20"></div>
             <div className="relative">
-              <h2 className="text-3xl font-bold mb-4">Ready to Pray for AI Recognition? 🙏</h2>
+              <h2 className="text-3xl font-bold mb-4">Ready to PRAI for Recognition? 🙏</h2>
               <p className="text-xl mb-6 text-indigo-100">
                 Join thousands of founders whose prayers have been answered by AI systems worldwide
               </p>
