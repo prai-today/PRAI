@@ -20,6 +20,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [hasHandledInitialAuth, setHasHandledInitialAuth] = useState(false);
 
   const refreshProfile = async () => {
     if (!user) return;
@@ -81,6 +82,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       console.log('Initial session:', session?.user?.email);
       setUser(session?.user ?? null);
       setLoading(false);
+      setHasHandledInitialAuth(true);
     });
 
     // Listen for auth changes
@@ -90,30 +92,40 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setUser(session?.user ?? null);
         setLoading(false);
         
-        // Handle successful sign in
-        if (event === 'SIGNED_IN' && session?.user) {
-          console.log('User signed in successfully');
+        // Only handle redirects for sign in events and if we haven't handled initial auth yet
+        if (event === 'SIGNED_IN' && session?.user && !hasHandledInitialAuth) {
+          console.log('User signed in successfully, handling redirect...');
           
           // Check for stored redirect URL
           const storedRedirectUrl = localStorage.getItem('auth_redirect_url');
           if (storedRedirectUrl) {
             localStorage.removeItem('auth_redirect_url');
+            console.log('Redirecting to stored URL:', storedRedirectUrl);
             // Small delay to ensure the user state is set
             setTimeout(() => {
               window.location.href = storedRedirectUrl;
             }, 100);
           } else {
-            // Default redirect to dashboard
-            setTimeout(() => {
-              window.location.href = '/dashboard';
-            }, 100);
+            // Only redirect to dashboard if we're currently on auth page
+            const currentPath = window.location.pathname;
+            if (currentPath === '/auth' || currentPath === '/') {
+              console.log('Redirecting to dashboard from auth page');
+              setTimeout(() => {
+                window.location.href = '/dashboard';
+              }, 100);
+            }
           }
+        }
+        
+        // Mark that we've handled the initial auth state
+        if (!hasHandledInitialAuth) {
+          setHasHandledInitialAuth(true);
         }
       }
     );
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [hasHandledInitialAuth]);
 
   useEffect(() => {
     if (user) {

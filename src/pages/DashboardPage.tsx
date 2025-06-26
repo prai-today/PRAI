@@ -11,15 +11,21 @@ export function DashboardPage() {
   const [publications, setPublications] = useState<Publication[]>([]);
   const [loadingPublications, setLoadingPublications] = useState(true);
   const [url, setUrl] = useState('');
+  const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
 
   useEffect(() => {
-    if (!loading && !user) {
-      window.location.href = '/auth';
-      return;
-    }
+    if (!loading) {
+      setHasCheckedAuth(true);
+      
+      if (!user) {
+        console.log('No user found, redirecting to auth');
+        window.location.href = '/auth';
+        return;
+      }
 
-    if (user) {
-      fetchPublications();
+      if (user) {
+        fetchPublications();
+      }
     }
   }, [user, loading]);
 
@@ -84,12 +90,18 @@ export function DashboardPage() {
     }
   };
 
-  if (loading) {
+  // Show loading while checking auth
+  if (loading || !hasCheckedAuth) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
         <div className="w-6 h-6 sm:w-8 sm:h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
       </div>
     );
+  }
+
+  // Don't render anything if no user (will redirect)
+  if (!user) {
+    return null;
   }
 
   return (

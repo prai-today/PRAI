@@ -8,6 +8,7 @@ export function AuthPage() {
   const { user, loading } = useAuth();
   const [mode, setMode] = useState<'signin' | 'signup'>('signin');
   const [redirectUrl, setRedirectUrl] = useState<string>('');
+  const [hasRedirected, setHasRedirected] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -24,20 +25,24 @@ export function AuthPage() {
   }, []);
 
   useEffect(() => {
-    if (user && !loading) {
+    if (user && !loading && !hasRedirected) {
+      setHasRedirected(true);
+      
       // Check for stored redirect URL first
       const storedRedirectUrl = localStorage.getItem('auth_redirect_url');
       if (storedRedirectUrl) {
         localStorage.removeItem('auth_redirect_url');
+        console.log('Redirecting to stored URL from AuthPage:', storedRedirectUrl);
         window.location.href = storedRedirectUrl;
         return;
       }
       
       // Use URL parameter redirect
       const targetUrl = redirectUrl || '/dashboard';
+      console.log('Redirecting to target URL from AuthPage:', targetUrl);
       window.location.href = targetUrl;
     }
-  }, [user, loading, redirectUrl]);
+  }, [user, loading, redirectUrl, hasRedirected]);
 
   if (loading) {
     return (
@@ -47,7 +52,7 @@ export function AuthPage() {
     );
   }
 
-  if (user) {
+  if (user && hasRedirected) {
     return null; // Will redirect in useEffect
   }
 
