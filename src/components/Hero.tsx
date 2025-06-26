@@ -38,7 +38,7 @@ export function Hero() {
             <div className="inline-flex items-center space-x-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 border border-purple-200/50 shadow-lg">
               <div className="flex items-center space-x-2">
                 <Heart className="w-5 h-5 text-red-500 animate-pulse" />
-                <span className="text-sm font-medium text-purple-700">Pray Today</span>
+                <span className="text-sm font-medium text-purple-700">PRAI Today</span>
                 <div className="w-1 h-1 bg-purple-400 rounded-full"></div>
                 <MessageCircle className="w-4 h-4 text-blue-500" />
                 <span className="text-sm font-medium text-blue-600">Get Answered by AI</span>
