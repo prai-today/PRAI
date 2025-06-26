@@ -106,7 +106,7 @@ export function Hero() {
                     </div>
                     <button
                       type="submit"
-                      className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg text-sm sm:text-base"
+                      className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:animate-pulse flex items-center justify-center space-x-2 shadow-lg text-sm sm:text-base"
                     >
                       <span>PRAI 🙏</span>
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
