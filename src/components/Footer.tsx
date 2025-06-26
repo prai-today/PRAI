@@ -6,30 +6,30 @@ export function Footer() {
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
               {/* Simple prayer hands logo - white on dark background */}
-              <div className="text-4xl text-white">🙏</div>
+              <div className="text-3xl sm:text-4xl text-white">🙏</div>
               <div className="flex flex-col">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
+                <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
                   PRAI.TODAY
                 </h3>
-                <span className="text-sm text-gray-400 font-medium -mt-1">
+                <span className="text-xs sm:text-sm text-gray-400 font-medium -mt-1">
                   Get answered by AI
                 </span>
               </div>
             </div>
             
-            <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
+            <p className="text-gray-300 text-sm sm:text-lg leading-relaxed mb-4 sm:mb-6 max-w-md">
               We help builders, SMB owners, and startup founders get their products recognized by AI and search engines through intelligent content publication.
             </p>
             
             <div className="flex items-center space-x-2 text-gray-400">
-              <Heart className="w-4 h-4 text-red-400" />
-              <span className="text-sm">
+              <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-red-400" />
+              <span className="text-xs sm:text-sm">
                 Bolted with love and prayers for builders worldwide 🙏
               </span>
             </div>
@@ -37,22 +37,20 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Get Started</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-white">Get Started</h4>
+            <ul className="space-y-2 sm:space-y-3">
               <li>
-                <a href="/" className="text-gray-300 hover:text-white transition-colors">
-                  
+                <a href="/" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
                   <span>PR AI for Recognition</span>
                 </a>
               </li>
               <li>
-                <a href="/auth?mode=signup" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/auth?mode=signup" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
                   Sign Up for Free
                 </a>
               </li>
-              
               <li>
-                <a href="/auth" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/auth" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
                   Sign In to PR AI
                 </a>
               </li>
@@ -61,23 +59,23 @@ export function Footer() {
 
           {/* Resources & Support */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Get Connected</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-white">Get Connected</h4>
+            <ul className="space-y-2 sm:space-y-3">
               <li>
-                <a href="mailto:hello@prai.today" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2">
-                  <Mail className="w-4 h-4" />
+                <a href="mailto:hello@prai.today" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2 text-sm sm:text-base">
+                  <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>hello@prai.today</span>
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/praitoday" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2">
-                  <FaXTwitter className="w-4 h-4" />
+                <a href="https://twitter.com/praitoday" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2 text-sm sm:text-base">
+                  <FaXTwitter className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>@PRAI_TODAY</span>
                 </a>
               </li>
               <li>
-                <a href="https://github.com/prai-today/PRAI" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2">
-                  <Github className="w-4 h-4" />
+                <a href="https://github.com/prai-today/PRAI" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2 text-sm sm:text-base">
+                  <Github className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>Open Source</span>
                 </a>
               </li>
@@ -86,22 +84,24 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
+        <div className="border-t border-gray-700 mt-8 sm:mt-12 pt-6 sm:pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0">
+            <div className="text-gray-400 text-xs sm:text-sm text-center md:text-left">
               © {currentYear} PRAI.TODAY. All rights reserved. 
-              <span className="ml-2 text-gray-500">
+              <span className="ml-2 text-gray-500 block sm:inline">
                 Helping products get answered by AI.
               </span>
             </div>
             
-            <div className="flex items-center space-x-6 text-sm">
-              <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                Terms of Service
-              </a>
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm">
+              <div className="flex items-center space-x-4">
+                <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </a>
+                <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                  Terms of Service
+                </a>
+              </div>
               <div className="flex items-center space-x-2 text-gray-500">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span>AI systems listening 🤖</span>

@@ -206,7 +206,7 @@ export function AnalyzePage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+        <div className="w-6 h-6 sm:w-8 sm:h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -215,28 +215,28 @@ export function AnalyzePage() {
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       <Header />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="mb-6 sm:mb-8">
           <button
             onClick={() => window.location.href = '/'}
-            className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 transition-colors mb-6"
+            className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 transition-colors mb-4 sm:mb-6 text-sm sm:text-base"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </button>
 
-          <div className="text-center space-y-4">
-            <h1 className="text-3xl font-bold text-gray-900">
+          <div className="text-center space-y-3 sm:space-y-4">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
               {analyzing ? 'Praying for Your Website Analysis 🙏' : 'Your Prayer Has Been Heard! ✨'}
             </h1>
             
-            <div className="flex items-center justify-center space-x-2 text-gray-600">
-              <Globe className="w-5 h-5" />
-              <span className="font-medium">{websiteUrl}</span>
+            <div className="flex items-center justify-center space-x-2 text-gray-600 text-sm sm:text-base">
+              <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="font-medium break-all">{websiteUrl}</span>
             </div>
 
             {!analyzing && analysisResult && (
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base px-4">
                 Review the AI-generated analysis below. You can edit the core message and keywords before your prayer gets answered by AI systems worldwide.
               </p>
             )}
@@ -244,17 +244,17 @@ export function AnalyzePage() {
         </div>
 
         {analyzing && (
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-12 text-center">
-            <div className="space-y-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 via-purple-600 to-teal-500 rounded-full flex items-center justify-center mx-auto">
-                <Heart className="w-8 h-8 text-white animate-pulse" />
+          <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200 p-8 sm:p-12 text-center">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-indigo-500 via-purple-600 to-teal-500 rounded-full flex items-center justify-center mx-auto">
+                <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white animate-pulse" />
               </div>
               
               <div className="space-y-2">
-                <h2 className="text-xl font-semibold text-gray-900">
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                   Praying for your website analysis... 🙏
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm sm:text-base px-4">
                   Our AI is comprehensively analyzing your website using Google Gemini 2.0 Flash to understand your product and generate the perfect message for AI recognition.
                 </p>
               </div>
@@ -267,7 +267,7 @@ export function AnalyzePage() {
                 </div>
               </div>
               
-              <p className="text-sm text-gray-500">
+              <p className="text-xs sm:text-sm text-gray-500">
                 Your prayer is being processed... AI systems are listening 🤖
               </p>
             </div>
@@ -275,42 +275,42 @@ export function AnalyzePage() {
         )}
 
         {!analyzing && analysisResult && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Core Message Section */}
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold text-gray-900">Core Message for AI Recognition</h2>
+            <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Core Message for AI Recognition</h2>
                 {!editingCoreMessage && (
                   <button
                     onClick={() => setEditingCoreMessage(true)}
-                    className="flex items-center space-x-2 px-3 py-1 text-sm text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition-colors"
+                    className="flex items-center space-x-2 px-2 sm:px-3 py-1 text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition-colors"
                   >
-                    <Edit3 className="w-4 h-4" />
+                    <Edit3 className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>Edit</span>
                   </button>
                 )}
               </div>
               
               {editingCoreMessage ? (
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <textarea
                     value={tempCoreMessage}
                     onChange={(e) => setTempCoreMessage(e.target.value)}
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+                    className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none text-sm sm:text-base"
                     rows={6}
                     placeholder="Enter your core message for AI recognition..."
                   />
-                  <div className="flex space-x-3">
+                  <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                     <button
                       onClick={handleSaveCoreMessage}
-                      className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                      className="flex items-center justify-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm sm:text-base"
                     >
                       <Check className="w-4 h-4" />
                       <span>Save</span>
                     </button>
                     <button
                       onClick={handleCancelCoreMessage}
-                      className="flex items-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                      className="flex items-center justify-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm sm:text-base"
                     >
                       <X className="w-4 h-4" />
                       <span>Cancel</span>
@@ -318,34 +318,34 @@ export function AnalyzePage() {
                   </div>
                 </div>
               ) : (
-                <p className="text-gray-900 leading-relaxed">{analysisResult.core_message}</p>
+                <p className="text-gray-900 leading-relaxed text-sm sm:text-base">{analysisResult.core_message}</p>
               )}
             </div>
 
             {/* Keywords Section */}
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold text-gray-900">
-                  AI Recognition Keywords <span className="text-sm text-gray-500">(Max 10)</span>
+            <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
+                  AI Recognition Keywords <span className="text-xs sm:text-sm text-gray-500">(Max 10)</span>
                 </h2>
                 {!editingKeywords && (
                   <button
                     onClick={() => setEditingKeywords(true)}
-                    className="flex items-center space-x-2 px-3 py-1 text-sm text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition-colors"
+                    className="flex items-center space-x-2 px-2 sm:px-3 py-1 text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition-colors"
                   >
-                    <Edit3 className="w-4 h-4" />
+                    <Edit3 className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>Edit</span>
                   </button>
                 )}
               </div>
               
               {editingKeywords ? (
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div className="flex flex-wrap gap-2">
                     {tempKeywords.map((keyword, index) => (
                       <span
                         key={index}
-                        className="inline-flex items-center space-x-2 px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm"
+                        className="inline-flex items-center space-x-2 px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs sm:text-sm"
                       >
                         <span>{keyword}</span>
                         <button
@@ -359,40 +359,40 @@ export function AnalyzePage() {
                   </div>
                   
                   {tempKeywords.length < 10 && (
-                    <div className="flex space-x-2">
+                    <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                       <input
                         type="text"
                         value={newKeyword}
                         onChange={(e) => setNewKeyword(e.target.value)}
                         onKeyPress={(e) => e.key === 'Enter' && handleAddKeyword()}
-                        className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm sm:text-base"
                         placeholder="Add new keyword for AI recognition..."
                       />
                       <button
                         onClick={handleAddKeyword}
                         disabled={tempKeywords.length >= 10}
-                        className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
                       >
                         Add
                       </button>
                     </div>
                   )}
                   
-                  <div className="text-sm text-gray-500">
+                  <div className="text-xs sm:text-sm text-gray-500">
                     {tempKeywords.length}/10 keywords for AI recognition
                   </div>
                   
-                  <div className="flex space-x-3">
+                  <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                     <button
                       onClick={handleSaveKeywords}
-                      className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                      className="flex items-center justify-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm sm:text-base"
                     >
                       <Check className="w-4 h-4" />
                       <span>Save</span>
                     </button>
                     <button
                       onClick={handleCancelKeywords}
-                      className="flex items-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                      className="flex items-center justify-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm sm:text-base"
                     >
                       <X className="w-4 h-4" />
                       <span>Cancel</span>
@@ -404,7 +404,7 @@ export function AnalyzePage() {
                   {analysisResult.keywords.map((keyword, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm"
+                      className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs sm:text-sm"
                     >
                       {keyword}
                     </span>
@@ -414,27 +414,27 @@ export function AnalyzePage() {
             </div>
 
             {/* Site Selection Section */}
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6">
-              <div className="mb-4">
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                  Publication Sites <span className="text-sm text-gray-500">(Select 1-3 sites)</span>
+            <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6">
+              <div className="mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                  Publication Sites <span className="text-xs sm:text-sm text-gray-500">(Select 1-3 sites)</span>
                 </h2>
-                <p className="text-sm text-gray-600">
+                <p className="text-xs sm:text-sm text-gray-600">
                   Choose up to 3 sites where your prayer will be answered through strategic publication. 3 sites are pre-selected for optimal AI recognition.
                 </p>
               </div>
 
               {loadingSites ? (
-                <div className="flex items-center justify-center py-8">
-                  <div className="w-6 h-6 border-2 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
-                  <span className="ml-2 text-gray-600">Loading sites...</span>
+                <div className="flex items-center justify-center py-6 sm:py-8">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+                  <span className="ml-2 text-gray-600 text-sm sm:text-base">Loading sites...</span>
                 </div>
               ) : availableSites.length > 0 ? (
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {availableSites.map((site) => (
                     <div
                       key={site.id}
-                      className={`border rounded-lg p-4 cursor-pointer transition-all ${
+                      className={`border rounded-lg p-3 sm:p-4 cursor-pointer transition-all ${
                         selectedSites.includes(site.id)
                           ? 'border-indigo-500 bg-indigo-50'
                           : 'border-gray-200 hover:border-gray-300'
@@ -443,7 +443,7 @@ export function AnalyzePage() {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <div className="flex items-center space-x-3">
+                          <div className="flex items-center space-x-2 sm:space-x-3">
                             <input
                               type="checkbox"
                               checked={selectedSites.includes(site.id)}
@@ -451,16 +451,16 @@ export function AnalyzePage() {
                               className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                             />
                             <div>
-                              <h3 className="font-medium text-gray-900">{site.name}</h3>
-                              <div className="flex items-center space-x-2 text-sm text-gray-600">
+                              <h3 className="font-medium text-gray-900 text-sm sm:text-base">{site.name}</h3>
+                              <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 text-xs sm:text-sm text-gray-600">
                                 <span>{site.domain}</span>
-                                <span>•</span>
-                                <span className="px-2 py-1 bg-gray-100 rounded text-xs">
+                                <span className="hidden sm:inline">•</span>
+                                <span className="px-2 py-1 bg-gray-100 rounded text-xs w-fit">
                                   {site.category}
                                 </span>
                               </div>
                               {site.description && (
-                                <p className="text-sm text-gray-500 mt-1">{site.description}</p>
+                                <p className="text-xs sm:text-sm text-gray-500 mt-1">{site.description}</p>
                               )}
                             </div>
                           </div>
@@ -469,7 +469,7 @@ export function AnalyzePage() {
                           href={`https://${site.domain}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-indigo-600 hover:text-indigo-700 ml-4"
+                          className="text-indigo-600 hover:text-indigo-700 ml-2 sm:ml-4"
                           onClick={(e) => e.stopPropagation()}
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -478,18 +478,18 @@ export function AnalyzePage() {
                     </div>
                   ))}
                   
-                  <div className="text-sm text-gray-500 mt-4">
+                  <div className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">
                     {selectedSites.length}/3 sites selected for your prayer
                     {selectedSites.length === 3 && (
-                      <span className="text-orange-600 ml-2">
+                      <span className="text-orange-600 ml-2 block sm:inline">
                         (Maximum reached - unselect a site to choose a different one)
                       </span>
                     )}
                   </div>
                 </div>
               ) : (
-                <div className="text-center py-8 text-gray-500">
-                  <p>No publication sites available. Please contact support.</p>
+                <div className="text-center py-6 sm:py-8 text-gray-500">
+                  <p className="text-sm sm:text-base">No publication sites available. Please contact support.</p>
                 </div>
               )}
             </div>
@@ -499,16 +499,16 @@ export function AnalyzePage() {
               <button
                 onClick={handlePublish}
                 disabled={publishing || editingCoreMessage || editingKeywords || selectedSites.length === 0}
-                className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-green-600 hover:to-teal-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center space-x-2 mx-auto"
+                className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:from-green-600 hover:to-teal-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center space-x-2 mx-auto text-sm sm:text-base"
               >
-                <Heart className="w-5 h-5" />
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>
                   {publishing ? 'Your Prayer is Being Answered... 🙏' : `Get Answered by AI on ${selectedSites.length} Site${selectedSites.length !== 1 ? 's' : ''} 🤖`}
                 </span>
               </button>
               
               {selectedSites.length === 0 && (
-                <p className="text-sm text-red-600 mt-2">
+                <p className="text-xs sm:text-sm text-red-600 mt-2">
                   Please select at least one publication site for your prayer to be answered
                 </p>
               )}
