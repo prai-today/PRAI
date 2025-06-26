@@ -139,7 +139,7 @@ export function Hero() {
               <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <MessageCircle className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Chief Editor</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Editor</h3>
               <p className="text-gray-600 leading-relaxed">
                 PRAI edits contents optimized for LLMs and AI models.
               </p>
