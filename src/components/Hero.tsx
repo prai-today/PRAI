@@ -60,7 +60,7 @@ export function Hero() {
               
               <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 <strong>We</strong> helps builders, founders, and SMB owners get their products 
-                recognized by AI and search engines through intelligent content generation and strategic publication.
+                recognized by AI and search engines through optimized content generation and strategic publication.
               </p>
               
               <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-6 max-w-3xl mx-auto border border-indigo-200">
