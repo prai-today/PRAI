@@ -67,7 +67,7 @@ export function Hero() {
               <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-4 max-w-3xl mx-auto border border-indigo-200">
                 
                 <p className="text-lg text-gray-700 font-medium mb-3">
-                  <strong>PR AI agent publishes</strong> → <strong>Get recognized by AI in a week</strong>
+                  <strong>Publish with PR AI agent</strong> → <strong>Get recognized by AI in a week</strong>
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
                   <div className="flex items-center space-x-2">
