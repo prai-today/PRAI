@@ -493,11 +493,7 @@ export function AnalyzePage() {
                   
                   <div className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">
                     {selectedSites.length}/3 sites selected for your prayer
-                    {selectedSites.length === 3 && (
-                      <span className="text-orange-600 ml-2 block sm:inline">
-                        (Maximum reached - unselect a site to choose a different one)
-                      </span>
-                    )}
+                   
                   </div>
                 </div>
               ) : (
