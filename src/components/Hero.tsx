@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { ArrowRight, Globe, Sparkles, Zap, Target, TrendingUp, Clock, CheckCircle, SearchCheck, Heart, MessageCircle } from 'lucide-react';
+import { ArrowRight, Globe, Sparkles, Zap, Target, TrendingUp, Clock, CheckCircle, SearchCheck, SquarePen, Heart, MessageCircle } from 'lucide-react';
 
 export function Hero() {
   const { user } = useAuth();
@@ -137,7 +137,7 @@ export function Hero() {
 
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all hover:scale-105 group">
               <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <MessageCircle className="w-7 h-7 text-white" />
+                <SquarePen className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Editor</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -151,7 +151,7 @@ export function Hero() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Publisher</h3>
               <p className="text-gray-600 leading-relaxed">
-                PRAI tells AIs about your product, ensuring AI can find and understand your product.
+                PRAI publishes online, ensuring AI can find and understand your product.
               </p>
             </div>
           </div>
