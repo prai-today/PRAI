@@ -107,7 +107,7 @@ export function Hero() {
                       type="submit"
                       className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 flex items-center space-x-2 shadow-lg"
                     >
-                      <span>Time to PRAI</span>
+                      <span>PRAI 🙏</span>
                       <ArrowRight className="w-5 h-5" />
                     </button>
                   </div>
