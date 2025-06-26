@@ -97,7 +97,7 @@ export function Hero() {
                     <Globe className="w-6 h-6 text-gray-400 ml-4" />
                     <input
                       type="url"
-                      placeholder="Enter your website URL and pray for AI recognition 🙏"
+                      placeholder="Enter your website URL"
                       value={url}
                       onChange={(e) => setUrl(e.target.value)}
                       className="flex-1 py-4 px-2 text-lg bg-transparent border-none outline-none placeholder-gray-400"
