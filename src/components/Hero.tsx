@@ -141,7 +141,7 @@ export function Hero() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">AI writes contents</h3>
               <p className="text-gray-600 leading-relaxed">
-                Your prayers are answered through strategic publication to premium sites, ensuring AI systems and search engines can find, understand, and recommend your product.
+                PRAI writes optimized contents based on your final input, and publishes strategically to public websites, ensuring AI and search engines can find, understand, and answer your product.
               </p>
             </div>
 
