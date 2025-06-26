@@ -65,7 +65,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
                 PR<span className="text-xl">🙏</span>I.today
               </h1>
               <span className="text-xs text-gray-500 font-medium -mt-1">
-                Get answered by AI
+                Get Answered by AI
               </span>
             </div>
           </div>
