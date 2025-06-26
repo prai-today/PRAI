@@ -30,6 +30,7 @@ export function AnalyzePage() {
   const [tempKeywords, setTempKeywords] = useState<string[]>([]);
   const [newKeyword, setNewKeyword] = useState('');
   const [publishing, setPublishing] = useState(false);
+  const [hasAnalyzed, setHasAnalyzed] = useState(false); // Add this to track if we've already analyzed
   
   // Site selection state
   const [availableSites, setAvailableSites] = useState<PublastSite[]>([]);
@@ -44,12 +45,12 @@ export function AnalyzePage() {
 
     const params = new URLSearchParams(window.location.search);
     const url = params.get('url');
-    if (url) {
+    if (url && !hasAnalyzed) { // Only analyze if we haven't already analyzed
       setWebsiteUrl(decodeURIComponent(url));
       analyzeWebsite(decodeURIComponent(url));
       loadAvailableSites();
     }
-  }, [user, loading]);
+  }, [user, loading, hasAnalyzed]); // Add hasAnalyzed to dependencies
 
   const loadAvailableSites = async () => {
     setLoadingSites(true);
@@ -75,6 +76,7 @@ export function AnalyzePage() {
 
   const analyzeWebsite = async (url: string) => {
     setAnalyzing(true);
+    setHasAnalyzed(true); // Mark that we've started analysis
     try {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
@@ -103,6 +105,7 @@ export function AnalyzePage() {
     } catch (error) {
       console.error('Error analyzing website:', error);
       alert(`Analysis failed: ${error.message}`);
+      setHasAnalyzed(false); // Reset on error so user can try again
     } finally {
       setAnalyzing(false);
     }
