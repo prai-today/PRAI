@@ -41,7 +41,7 @@ export function Hero() {
                 <span className="text-sm font-medium text-purple-700">PRAI Today</span>
                 <div className="w-1 h-1 bg-purple-400 rounded-full"></div>
                 <MessageCircle className="w-4 h-4 text-blue-500" />
-                <span className="text-sm font-medium text-blue-600">Get Answered by AI</span>
+                <span className="text-sm font-medium text-blue-600">Get Answered by AI Tomorrow</span>
               </div>
             </div>
             
