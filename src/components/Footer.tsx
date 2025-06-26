@@ -91,7 +91,7 @@ export function Footer() {
             <div className="text-gray-400 text-sm">
               © {currentYear} PR🙏I.today. All rights reserved. 
               <span className="ml-2 text-gray-500">
-                Helping products get answered by AI, one prayer at a time. 🙏
+                Helping products get answered by AI.
               </span>
             </div>
             
