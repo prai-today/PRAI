@@ -65,7 +65,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
         <div className="text-center">
           <div className="inline-flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
             {/* Simple prayer hands logo - purple on light background */}
-            <div className="text-3xl sm:text-4xl text-purple-600">🙏</div>
+            
             
             <div className="flex flex-col">
               <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
