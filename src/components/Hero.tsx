@@ -62,7 +62,7 @@ export function Hero() {
                 <strong>Prai.Today</strong> is non-profit & open-source project to help builders, founders, and SMB owners get their products 
                 recognized by AI and search engines through optimized content generation and strategic publication.
               </p>
-              <p className="text-sm font-semibold text-gray-400">Powered by <a href="https://bolt.new/" className="text-yellow-700">Bolt.new</a> + <a href="https://supabase.com/" className="text-emerald-500">Supabase</a> + <a href="https://www.netlify.com/" className="text-teal-500">Netlify</a> + <a href="" href="https://publast.com" className="text-blue-500">Publast</a> + <a href="https://www.entri.com/" className="text-stone-500">Entri</a> + <a href="https://www.ionos.com/" className="text-blue-800">IONOS</a></p>
+              <p className="text-sm font-semibold text-gray-400">Powered by <a href="https://bolt.new/" target="_blank" rel="noopener noreferrer" className="text-yellow-700">Bolt.new</a> + <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-500">Supabase</a> + <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer" className="text-teal-500">Netlify</a> + <a href="" href="https://publast.com" target="_blank" rel="noopener noreferrer" className="text-blue-500">Publast</a> + <a href="https://www.entri.com/" target="_blank" rel="noopener noreferrer" className="text-stone-500">Entri</a> + <a href="https://www.ionos.com/" target="_blank" rel="noopener noreferrer" className="text-blue-800">IONOS</a></p>
               
               <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-4 max-w-3xl mx-auto border border-indigo-200">
                 
