@@ -151,7 +151,7 @@ export function Hero() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Publisher</h3>
               <p className="text-gray-600 leading-relaxed">
-                PRAI publishes strategically to public websites, ensuring AI and search engines can find and understand your product.
+                PRAI publishes online, ensuring AI and search engines can find and understand your product.
               </p>
             </div>
           </div>
