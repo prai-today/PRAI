@@ -88,7 +88,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
             </div>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-            {mode === 'signup' ? 'Start PRAI Today 🙏' : 'Welcome Back'}
+            {mode === 'signup' ? 'Start PRAI Today' : 'Welcome Back'}
           </h2>
           <p className="mt-2 text-sm sm:text-base text-gray-600 px-2">
             {mode === 'signup' 
