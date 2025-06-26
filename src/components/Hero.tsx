@@ -141,7 +141,7 @@ export function Hero() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Chief Editor</h3>
               <p className="text-gray-600 leading-relaxed">
-                PRAI edits optimized contents and publishes strategically to public websites, ensuring AI and search engines can understand your product.
+                PRAI edits optimized contents and publishes strategically to public websites, ensuring AI and search engines can find and understand your product.
               </p>
             </div>
 
