@@ -131,7 +131,7 @@ export function Hero() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Researcher</h3>
               <p className="text-gray-600 leading-relaxed">
-                PRAI analyzes your website and generates effective core message and keywords that help AI understand and recognize your product.
+                PRAI analyzes your website and generates effective core message and keywords.
               </p>
             </div>
 
