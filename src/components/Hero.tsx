@@ -170,7 +170,7 @@ export function Hero() {
                   className="bg-white text-indigo-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center space-x-2"
                 >
                   <Heart className="w-5 h-5" />
-                  <span>{user ? "PRAI for Another" : "Start PRAI Today"}</span>
+                  <span>{user ? "PRAI Now" : "Start PRAI Today"}</span>
                 </a>
                 <span className="text-indigo-200 text-sm">
                   • Free prayer with Google signup • No credit card required • AI answers in 24 hours
