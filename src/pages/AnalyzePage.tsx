@@ -434,15 +434,15 @@ export function AnalyzePage() {
                   <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
                   <span className="ml-2 text-gray-600 text-sm sm:text-base">Loading sites...</span>
                 </div>
-              ) : selectedSites.length > 0 ? (
+              ) : availableSites.length > 0 ? (
                 <div className="space-y-2 sm:space-y-3">
-                  {selectedSites.map((site) => (
+                  {availableSites.map((site) => (
                     <div
                       key={site.id}
                       className={`border rounded-lg p-3 sm:p-4 cursor-pointer transition-all ${
                         selectedSites.includes(site.id)
                           ? 'border-indigo-500 bg-indigo-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                          : 'border-gray-200 hover:border-gray-300 hidden'
                       }`}
                       onClick={() => handleSiteToggle(site.id)}
                     >
