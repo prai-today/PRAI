@@ -459,11 +459,7 @@ export function AnalyzePage() {
                             <div>
                               <div className="flex items-center space-x-2">
                                 <h3 className="font-medium text-gray-900 text-sm sm:text-base">{site.name}</h3>
-                                {analysisResult.selected_sites.includes(site.id) && (
-                                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    🤖 AI Selected
-                                  </span>
-                                )}
+                                
                               </div>
                               <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 text-xs sm:text-sm text-gray-600">
                                 <span>{site.domain}</span>
