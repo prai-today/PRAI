@@ -252,7 +252,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
                 href={mode === 'signup' ? '/auth' : '/auth?mode=signup'}
                 className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors"
               >
-                {mode === 'signup' ? 'Sign in' : 'Start praying today'}
+                {mode === 'signup' ? 'Sign in' : 'Start PRAI today'}
               </a>
             </p>
           </div>
