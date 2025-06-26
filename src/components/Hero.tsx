@@ -64,7 +64,7 @@ export function Hero() {
               </p>
               <p className="text-sm font-semibold text-gray-400">Powered by <span className="text-yellow-700">Bolt.new</span> + <span className="text-emerald-500">Supabase</span> + <span className="text-teal-500">Netlify</span> + <span className="text-stone-500">Entri</span> + <span className="text-blue-800">IONOS</span></p>
               
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 max-w-3xl mx-auto border border-indigo-200">
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-4 max-w-3xl mx-auto border border-indigo-200">
                 <p className="text-lg text-gray-700 font-medium mb-3">
                   🙏 <strong>Pray today</strong> → 🤖 <strong>Get answered by AI tomorrow</strong>
                 </p>
