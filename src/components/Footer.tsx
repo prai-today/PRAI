@@ -89,7 +89,7 @@ export function Footer() {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {currentYear} PR🙏I.today. All rights reserved. 
+              © {currentYear} PRAI.TODAY. All rights reserved. 
               <span className="ml-2 text-gray-500">
                 Helping products get answered by AI.
               </span>
