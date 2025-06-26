@@ -59,7 +59,7 @@ export function Hero() {
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                <strong>prai.today</strong> help builders, founders, and SMB owners get their products 
+                <strong>prai.today</strong> We help builders, founders, and SMB owners get their products 
                 recognized by AI and search engines through optimized content generation and strategic publication.
               </p>
               
