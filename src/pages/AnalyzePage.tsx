@@ -240,7 +240,7 @@ export function AnalyzePage() {
 
             {!analyzing && analysisResult && (
               <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base px-4">
-                Review the AI-generated analysis below. Gemini has intelligently selected the best publication sites for your content. You can edit everything before your prayer gets answered by AI systems worldwide.
+                Review the analysis below. You can edit the key message and keywords before handing the input over to AI to edit and publish.
               </p>
             )}
           </div>
