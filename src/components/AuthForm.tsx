@@ -58,11 +58,12 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <div className="inline-flex items-center space-x-3 mb-6">
-            {/* Simple prayer hands logo */}
+            {/* Simple prayer hands logo - purple on light background */}
+            <div className="text-4xl text-purple-600">🙏</div>
             
             <div className="flex flex-col">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
-                PR<span className="text-xl">🙏</span>I.TODAY
+                PR🙏I.TODAY
               </h1>
               <span className="text-xs text-gray-500 font-medium -mt-1">
                 Get Answered by AI

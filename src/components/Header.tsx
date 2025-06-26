@@ -26,8 +26,8 @@ export function Header() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
             <a href="/" className="flex items-center space-x-3 group">
-              {/* Simple prayer hands logo */}
-              <div className="text-3xl bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent group-hover:from-indigo-700 group-hover:scale-110 transition-transform duration-300">
+              {/* Simple prayer hands logo - purple on light background */}
+              <div className="text-3xl text-purple-600 group-hover:text-purple-700 group-hover:scale-110 transition-all duration-300">
                 🙏
               </div>
               

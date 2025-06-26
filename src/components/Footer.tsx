@@ -12,10 +12,10 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               {/* Simple prayer hands logo - white on dark background */}
-              <div className="text-4xl">🙏</div>
+              <div className="text-4xl text-white">🙏</div>
               <div className="flex flex-col">
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
-                  P R <span className="text-xl">🙏</span> I . T O D A Y
+                  PRAI.TODAY
                 </h3>
                 <span className="text-sm text-gray-400 font-medium -mt-1">
                   Get answered by AI in a week
