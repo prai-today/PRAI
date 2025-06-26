@@ -18,7 +18,7 @@ export function Footer() {
                   PRAI.TODAY
                 </h3>
                 <span className="text-sm text-gray-400 font-medium -mt-1">
-                  Get answered by AI in a week
+                  Get answered by AI
                 </span>
               </div>
             </div>
