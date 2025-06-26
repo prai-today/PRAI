@@ -141,7 +141,7 @@ export function Hero() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Editor</h3>
               <p className="text-gray-600 leading-relaxed">
-                PRAI edits contents optimized for LLMs and AI models.
+                PRAI edits your input into optimized contents for LLMs and AI models.
               </p>
             </div>
 
