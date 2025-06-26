@@ -78,6 +78,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
+      console.log('Initial session:', session?.user?.email);
       setUser(session?.user ?? null);
       setLoading(false);
     });
@@ -85,8 +86,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
+        console.log('Auth state change:', event, session?.user?.email);
         setUser(session?.user ?? null);
         setLoading(false);
+        
+        // Handle successful sign in
+        if (event === 'SIGNED_IN' && session?.user) {
+          console.log('User signed in successfully');
+          
+          // Check for stored redirect URL
+          const storedRedirectUrl = localStorage.getItem('auth_redirect_url');
+          if (storedRedirectUrl) {
+            localStorage.removeItem('auth_redirect_url');
+            // Small delay to ensure the user state is set
+            setTimeout(() => {
+              window.location.href = storedRedirectUrl;
+            }, 100);
+          } else {
+            // Default redirect to dashboard
+            setTimeout(() => {
+              window.location.href = '/dashboard';
+            }, 100);
+          }
+        }
       }
     );
 
@@ -102,13 +124,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [user]);
 
   const signInWithGoogle = async () => {
+    console.log('Initiating Google sign in...');
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/dashboard`
+        redirectTo: `${window.location.origin}/auth`,
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'select_account',
+        }
       }
     });
-    if (error) throw error;
+    
+    if (error) {
+      console.error('Google sign in error:', error);
+      throw error;
+    }
   };
 
   const signInWithEmail = async (email: string, password: string) => {

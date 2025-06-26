@@ -25,6 +25,15 @@ export function AuthPage() {
 
   useEffect(() => {
     if (user && !loading) {
+      // Check for stored redirect URL first
+      const storedRedirectUrl = localStorage.getItem('auth_redirect_url');
+      if (storedRedirectUrl) {
+        localStorage.removeItem('auth_redirect_url');
+        window.location.href = storedRedirectUrl;
+        return;
+      }
+      
+      // Use URL parameter redirect
       const targetUrl = redirectUrl || '/dashboard';
       window.location.href = targetUrl;
     }
