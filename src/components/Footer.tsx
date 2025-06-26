@@ -61,7 +61,7 @@ export function Footer() {
 
           {/* Resources & Support */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Get Answered</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white">Get Connected</h4>
             <ul className="space-y-3">
               <li>
                 <a href="mailto:hello@prai.today" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2">
