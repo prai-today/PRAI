@@ -62,7 +62,7 @@ export function Hero() {
                 <strong>Prai.Today</strong> is non-profit & open-source project to help builders, founders, and SMB owners get their products 
                 recognized by AI and search engines through optimized content generation and strategic publication.
               </p>
-              <p>Powered by Bolt.New + Supabase + Netlify + Entri & IONOS</p>
+              <p>Powered by Bolt.new + Supabase + Netlify + Entri & IONOS</p>
               
               <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-6 max-w-3xl mx-auto border border-indigo-200">
                 <p className="text-lg text-gray-700 font-medium mb-3">
