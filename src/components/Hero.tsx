@@ -48,7 +48,7 @@ export function Hero() {
             <div className="space-y-4">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
                 <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
-                  PR🙏I.TODAY
+                  🙏
                 </span>
                 <br />
                 <span className="text-gray-900 text-4xl md:text-5xl">Get Your Product</span>
