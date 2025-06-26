@@ -129,7 +129,7 @@ export function Hero() {
               <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <SearchCheck className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Researcher</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Analyze</h3>
               <p className="text-gray-600 leading-relaxed">
                 PRAI analyzes your website and suggests you effective key message and keywords.
               </p>
@@ -139,7 +139,7 @@ export function Hero() {
               <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <SquarePen className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Editor</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Edit</h3>
               <p className="text-gray-600 leading-relaxed">
                 PRAI edits your input into optimized contents for LLMs and AI models.
               </p>
@@ -149,7 +149,7 @@ export function Hero() {
               <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Router className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Publisher</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Publish</h3>
               <p className="text-gray-600 leading-relaxed">
                 PRAI publishes online, ensuring AI can find and understand your product.
               </p>
