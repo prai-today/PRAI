@@ -168,7 +168,7 @@ export function Header() {
                   className="block bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all text-center mx-3"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Meet PR AI agent
+                  Get Started
                 </a>
               </div>
             )}
