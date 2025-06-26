@@ -52,7 +52,7 @@ export function Hero() {
                 </span>
                 <br />
                 <span className="text-gray-900 text-4xl md:text-5xl">Get Recognized</span>
-                /
+                
                 <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent text-4xl md:text-5xl">
                   Answered by AI
                 </span>
