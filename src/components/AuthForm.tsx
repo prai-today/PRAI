@@ -93,7 +93,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
           <p className="mt-2 text-sm sm:text-base text-gray-600 px-2">
             {mode === 'signup' 
               ? 'Join PRAI.today and get recognized by AI'
-              : 'Sign in'
+              : 'Sign in to PRAI 🙏'
             }
           </p>
         </div>
