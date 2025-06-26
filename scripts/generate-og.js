@@ -1,4 +1,15 @@
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
 
+// Create the public directory if it doesn't exist
+const publicDir = path.join(process.cwd(), 'public');
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
+
+// Create SVG for OpenGraph image
+const ogSvg = `
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Background gradient -->
@@ -83,3 +94,24 @@
   <text x="1050" y="500" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
         font-size="35" opacity="0.6">🚀</text>
 </svg>
+`;
+
+// Write SVG file
+const svgPath = path.join(publicDir, 'og-image.svg');
+fs.writeFileSync(svgPath, ogSvg);
+
+// Convert SVG to PNG using Sharp
+const pngPath = path.join(publicDir, 'og-image.png');
+
+sharp(Buffer.from(ogSvg))
+  .png()
+  .resize(1200, 630)
+  .toFile(pngPath)
+  .then(() => {
+    console.log('✅ OpenGraph image generated successfully!');
+    console.log(`📁 SVG: ${svgPath}`);
+    console.log(`📁 PNG: ${pngPath}`);
+  })
+  .catch(err => {
+    console.error('❌ Error generating OpenGraph image:', err);
+  });
