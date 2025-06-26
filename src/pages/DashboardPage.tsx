@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { Plus, Clock, CheckCircle, XCircle, ExternalLink, Sparkles, TrendingUp, Heart } from 'lucide-react';
+import { Plus, Clock, CheckCircle, XCircle, ExternalLink, Sparkles, TrendingUp, Heart, Globe, ArrowRight } from 'lucide-react';
 import { Publication } from '../types/database';
 import { supabase } from '../lib/supabase';
 
@@ -10,6 +10,7 @@ export function DashboardPage() {
   const { user, profile, loading } = useAuth();
   const [publications, setPublications] = useState<Publication[]>([]);
   const [loadingPublications, setLoadingPublications] = useState(true);
+  const [url, setUrl] = useState('');
 
   useEffect(() => {
     if (!loading && !user) {
@@ -39,6 +40,14 @@ export function DashboardPage() {
       console.error('Error fetching publications:', error);
     } finally {
       setLoadingPublications(false);
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (url.trim()) {
+      const encodedUrl = encodeURIComponent(url.trim());
+      window.location.href = `/analyze?url=${encodedUrl}`;
     }
   };
 
@@ -146,22 +155,83 @@ export function DashboardPage() {
           <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 hover:shadow-xl transition-all sm:col-span-2 lg:col-span-1">
             <div className="flex items-center justify-between mb-3 sm:mb-4">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div className="text-right">
-                <a
-                  href="/"
-                  className="inline-flex items-center space-x-1 sm:space-x-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 text-xs sm:text-sm"
-                >
-                  <Heart className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span>New</span>
-                </a>
+                <span className="inline-flex items-center space-x-1 sm:space-x-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-semibold text-xs sm:text-sm">
+                  <span>Ready</span>
+                </span>
               </div>
             </div>
-            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">New PR</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">AI Recognition</h3>
             <p className="text-xs sm:text-sm text-gray-600">
-              PRAI for more AI recognition
+              Start a new PRAI below
             </p>
+          </div>
+        </div>
+
+        {/* New PRAI Section */}
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg border border-gray-200 mb-6 sm:mb-8">
+          <div className="p-4 sm:p-6 border-b border-gray-200">
+            <div className="flex items-center space-x-2 sm:space-x-3 mb-2">
+              <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-600" />
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Start New PRAI</h2>
+            </div>
+            <p className="text-xs sm:text-sm text-gray-600">
+              Enter your website URL to begin AI recognition process
+            </p>
+          </div>
+
+          <div className="p-4 sm:p-6">
+            {profile?.free_publications_remaining === 0 ? (
+              <div className="text-center py-6 sm:py-8">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500" />
+                </div>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">No PRAI Credits Left</h3>
+                <p className="text-gray-600 text-xs sm:text-sm mb-4">
+                  You've used all your free PRAI credits. Contact us to get more credits.
+                </p>
+                <a
+                  href="mailto:help@prai.today"
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all text-xs sm:text-sm"
+                >
+                  <span>Contact Support</span>
+                </a>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 rounded-xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+                  <div className="relative bg-white rounded-xl p-1.5 border border-gray-200 shadow-lg">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                      <div className="flex items-center space-x-3 flex-1 px-3 sm:px-0">
+                        <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 ml-0 sm:ml-4" />
+                        <input
+                          type="url"
+                          placeholder="Enter your website URL here"
+                          value={url}
+                          onChange={(e) => setUrl(e.target.value)}
+                          className="flex-1 py-3 sm:py-4 px-1 sm:px-2 text-sm sm:text-base bg-transparent border-none outline-none placeholder-gray-400"
+                          required
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg text-xs sm:text-sm"
+                      >
+                        <span>PRAI 🙏</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <p className="text-xs sm:text-sm text-gray-500 text-center">
+                  Ready to PRAI for your product's AI recognition today!
+                </p>
+              </form>
+            )}
           </div>
         </div>
 
@@ -186,15 +256,8 @@ export function DashboardPage() {
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">Ready to PRAI?</h3>
               <p className="text-gray-600 mb-4 sm:mb-6 max-w-md mx-auto text-sm sm:text-base">
-                Start your first PRAI today and watch AI recognize and answer your product.
+                Start your first PRAI above and watch AI recognize and answer your product.
               </p>
-              <a
-                href="/"
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 text-sm sm:text-base"
-              >
-                <Heart className="w-4 h-4" />
-                <span>Start Your First PRAI</span>
-              </a>
             </div>
           ) : (
             <div className="divide-y divide-gray-200">

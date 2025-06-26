@@ -14,8 +14,8 @@ export function Hero() {
         // User is authenticated, proceed to analyze
         window.location.href = `/analyze?url=${encodedUrl}`;
       } else {
-        // User is not authenticated, redirect to auth page
-        window.location.href = `/auth?mode=signup&redirect=/analyze?url=${encodedUrl}`;
+        // User is not authenticated, redirect to auth page with the URL
+        window.location.href = `/auth?mode=signup&redirect=${encodeURIComponent(`/analyze?url=${encodedUrl}`)}`;
       }
     }
   };
@@ -86,43 +86,61 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Enhanced URL Input Form */}
-          <div className="max-w-2xl mx-auto px-4">
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 rounded-xl sm:rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
-                <div className="relative bg-white rounded-xl sm:rounded-2xl p-1.5 sm:p-2 border border-gray-200 shadow-xl">
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
-                    <div className="flex items-center space-x-3 flex-1 px-3 sm:px-0">
-                      <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 ml-0 sm:ml-4" />
-                      <input
-                        type="url"
-                        placeholder="Enter your website URL here"
-                        value={url}
-                        onChange={(e) => setUrl(e.target.value)}
-                        className="flex-1 py-3 sm:py-4 px-1 sm:px-2 text-base sm:text-lg bg-transparent border-none outline-none placeholder-gray-400"
-                        required
-                      />
+          {/* Enhanced URL Input Form - Only show for non-authenticated users */}
+          {!user && (
+            <div className="max-w-2xl mx-auto px-4">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 rounded-xl sm:rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+                  <div className="relative bg-white rounded-xl sm:rounded-2xl p-1.5 sm:p-2 border border-gray-200 shadow-xl">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                      <div className="flex items-center space-x-3 flex-1 px-3 sm:px-0">
+                        <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 ml-0 sm:ml-4" />
+                        <input
+                          type="url"
+                          placeholder="Enter your website URL here"
+                          value={url}
+                          onChange={(e) => setUrl(e.target.value)}
+                          className="flex-1 py-3 sm:py-4 px-1 sm:px-2 text-base sm:text-lg bg-transparent border-none outline-none placeholder-gray-400"
+                          required
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:animate-pulse flex items-center justify-center space-x-2 shadow-lg text-sm sm:text-base"
+                      >
+                        <span>PRAI 🙏</span>
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                      </button>
                     </div>
-                    <button
-                      type="submit"
-                      className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:animate-pulse flex items-center justify-center space-x-2 shadow-lg text-sm sm:text-base"
-                    >
-                      <span>PRAI 🙏</span>
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </button>
                   </div>
                 </div>
+                
+                <p className="text-xs sm:text-sm text-gray-500 px-4">
+                  Sign up with Google to get 1 free PRAI credit!
+                </p>
+              </form>
+            </div>
+          )}
+
+          {/* For authenticated users, show a different CTA */}
+          {user && (
+            <div className="max-w-2xl mx-auto px-4">
+              <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-green-200">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Welcome back! 🙏</h3>
+                <p className="text-gray-600 mb-4 sm:mb-6">
+                  Ready to start a new PRAI? Head to your dashboard to begin.
+                </p>
+                <a
+                  href="/dashboard"
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg"
+                >
+                  <span>Go to Dashboard</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
               </div>
-              
-              <p className="text-xs sm:text-sm text-gray-500 px-4">
-                {user ? 
-                  "Ready to PRAI for your product's AI recognition today!" :
-                  "Sign up with Google to get 1 free PRAI credit!"
-                }
-              </p>
-            </form>
-          </div>
+            </div>
+          )}
 
           {/* Enhanced Features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-16 max-w-6xl mx-auto px-4">
@@ -157,28 +175,30 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Call to Action */}
-          <div className="mt-12 sm:mt-16 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden mx-4">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 via-purple-600/20 to-teal-600/20"></div>
-            <div className="relative">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Ready to PRAI for Recognition?</h2>
-              <p className="text-lg sm:text-xl mb-4 sm:mb-6 text-indigo-100">
-                Join other builders and founders whose prayers have been answered
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-                <a
-                  href={user ? "/" : "/auth?mode=signup"}
-                  className="bg-white text-indigo-600 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center space-x-2 text-sm sm:text-base w-full sm:w-auto justify-center"
-                >
-                  <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>{user ? "PRAI Today" : "Start PRAI Today"}</span>
-                </a>
-                <span className="text-indigo-200 text-xs sm:text-sm text-center">
-                  • Free PRAI credit with Google signup • No credit card required • AI answers in a week - month
-                </span>
+          {/* Call to Action - Only show for non-authenticated users */}
+          {!user && (
+            <div className="mt-12 sm:mt-16 bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden mx-4">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 via-purple-600/20 to-teal-600/20"></div>
+              <div className="relative">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Ready to PRAI for Recognition?</h2>
+                <p className="text-lg sm:text-xl mb-4 sm:mb-6 text-indigo-100">
+                  Join other builders and founders whose prayers have been answered
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+                  <a
+                    href="/auth?mode=signup"
+                    className="bg-white text-indigo-600 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center space-x-2 text-sm sm:text-base w-full sm:w-auto justify-center"
+                  >
+                    <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span>Start PRAI Today</span>
+                  </a>
+                  <span className="text-indigo-200 text-xs sm:text-sm text-center">
+                    • Free PRAI credit with Google signup • No credit card required • AI answers in a week - month
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

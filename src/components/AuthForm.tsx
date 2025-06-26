@@ -21,6 +21,13 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
       setLoading(true);
       setError('');
       await signInWithGoogle();
+      
+      // Redirect after successful auth
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      } else {
+        window.location.href = '/dashboard';
+      }
     } catch (error: any) {
       setError(error.message || 'Failed to sign in with Google');
     } finally {
@@ -60,7 +67,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
   };
 
   return (
-    <div className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center px-4 py-8">
+    <div className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center px-4 py-8 min-h-[calc(100vh-200px)]">
       <div className="max-w-md w-full space-y-6 sm:space-y-8">
         <div className="text-center">
           <div className="inline-flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
