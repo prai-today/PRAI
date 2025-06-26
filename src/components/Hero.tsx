@@ -54,7 +54,7 @@ export function Hero() {
                 <span className="text-gray-900 text-4xl md:text-5xl">PR AI agent helps you</span>
                 <br />
                 <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent text-4xl md:text-5xl">
-                  Get Recognized by AI
+                  Get recognized by AI
                 </span>
               </h1>
               
