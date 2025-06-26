@@ -88,12 +88,12 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
             </div>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-            {mode === 'signup' ? 'Start Praying Today 🙏' : 'Welcome Back'}
+            {mode === 'signup' ? 'Start PRAI Today 🙏' : 'Welcome Back'}
           </h2>
           <p className="mt-2 text-sm sm:text-base text-gray-600 px-2">
             {mode === 'signup' 
-              ? 'Join PR🙏I.today and get your product answered by AI'
-              : 'Sign in to continue your AI recognition journey'
+              ? 'Join PRAI.today and get recognized by AI'
+              : 'Sign in to PRAI 🙏'
             }
           </p>
         </div>
@@ -108,7 +108,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
           {mode === 'signup' && (
             <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-gradient-to-r from-green-50 to-teal-50 rounded-lg border border-green-200">
               <p className="text-xs sm:text-sm text-green-800 font-medium">
-                🙏 Sign up with Google to get 1 free prayer and start getting answered by AI today!
+                🙏 Sign up with Google to get 1 free credit!
               </p>
             </div>
           )}
