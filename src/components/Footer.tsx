@@ -76,7 +76,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://github.com/prai-today" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2">
+                <a href="https://github.com/prai-today/PRAI" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2">
                   <Github className="w-4 h-4" />
                   <span>Open Source</span>
                 </a>
