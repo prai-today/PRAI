@@ -94,7 +94,7 @@ export function Header() {
                 href="/auth?mode=signup"
                 className="bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white px-4 sm:px-6 py-2 rounded-lg text-xs sm:text-sm font-medium hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                <span className="hidden sm:inline">Meet PR AI agent</span>
+                <span className="hidden sm:inline">Get Started</span>
                 <span className="sm:hidden">PRAI</span>
               </a>
             </div>
