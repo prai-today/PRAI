@@ -49,12 +49,12 @@
   </g>
   
   <!-- Main prayer hands emoji (large) -->
-  <text x="600" y="180" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
-        font-size="100" text-anchor="middle" fill="url(#prayerGradient)" filter="url(#glow)">🙏</text>
+  <text x="600" y="200" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
+        font-size="120" text-anchor="middle" fill="url(#prayerGradient)" filter="url(#glow)">🙏</text>
   
   <!-- Main title -->
   <text x="600" y="280" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" 
-        font-size="72" text-anchor="middle" fill="url(#textGradient)">PRAI.TODAY</text>
+        font-size="72" text-anchor="middle" fill="url(#textGradient)">PR🙏I.TODAY</text>
   
   <!-- Subtitle -->
   <text x="600" y="330" font-family="system-ui, -apple-system, sans-serif" font-weight="600" 
@@ -62,16 +62,16 @@
   
   <!-- Description -->
   <text x="600" y="380" font-family="system-ui, -apple-system, sans-serif" font-weight="400" 
-        font-size="24" text-anchor="middle" fill="#c7d2fe">PRAI today → Get recognized by AI</text>
+        font-size="24" text-anchor="middle" fill="#c7d2fe">Pray today → Get answered by AI tomorrow</text>
   
   <!-- Call to action -->
   <rect x="450" y="420" width="300" height="60" rx="30" fill="#ffffff" opacity="0.9"/>
   <text x="600" y="460" font-family="system-ui, -apple-system, sans-serif" font-weight="600" 
-        font-size="28" text-anchor="middle" fill="#4f46e5">Start PR AI Today</text>
+        font-size="28" text-anchor="middle" fill="#4f46e5">Start Praying Today 🙏</text>
   
   <!-- Bottom tagline -->
   <text x="600" y="550" font-family="system-ui, -apple-system, sans-serif" font-weight="400" 
-        font-size="20" text-anchor="middle" fill="#a5b4fc">For builders, SMB owners & startup founders</text>
+        font-size="20" text-anchor="middle" fill="#a5b4fc">For indie builders, SMB owners & startup founders</text>
   
   <!-- AI icons -->
   <text x="200" y="400" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
