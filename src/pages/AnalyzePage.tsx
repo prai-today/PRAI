@@ -424,7 +424,7 @@ export function AnalyzePage() {
                 </h2>
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
                   <p className="text-xs sm:text-sm text-green-800">
-                    <strong>🤖 AI Intelligence:</strong> Gemini has analyzed your content and intelligently selected the best-fitting publication sites based on your product category, target audience, and content relevance. You can adjust the selection if needed.
+                    <strong>PRAI</strong> has analyzed your content and intelligently selected the best-fitting sites based on your product category, target audience, and content relevance.
                   </p>
                 </div>
               </div>
