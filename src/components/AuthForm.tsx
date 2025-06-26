@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { Eye, EyeOff, Mail, User, CheckSquare, Square } from 'lucide-react';
+import { Eye, EyeOff, Mail, User } from 'lucide-react';
 
 interface AuthFormProps {
   mode: 'signin' | 'signup';
@@ -13,16 +13,10 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [acceptTerms, setAcceptTerms] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleGoogleAuth = async () => {
-    if (mode === 'signup' && !acceptTerms) {
-      setError('Please accept the Terms of Service and Privacy Policy to continue.');
-      return;
-    }
-
     try {
       setLoading(true);
       setError('');
@@ -36,11 +30,6 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (mode === 'signup' && !acceptTerms) {
-      setError('Please accept the Terms of Service and Privacy Policy to continue.');
-      return;
-    }
 
     if (mode === 'signup' && !fullName.trim()) {
       setError('Full name is required for account creation.');
@@ -204,41 +193,24 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
             </div>
 
             {mode === 'signup' && (
-              <div className="space-y-3">
-                <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
-                  <button
-                    type="button"
-                    onClick={() => setAcceptTerms(!acceptTerms)}
-                    className="flex-shrink-0 mt-0.5"
-                  >
-                    {acceptTerms ? (
-                      <CheckSquare className="w-5 h-5 text-indigo-600" />
-                    ) : (
-                      <Square className="w-5 h-5 text-gray-400" />
-                    )}
-                  </button>
-                  <div className="text-sm text-gray-700">
-                    <p className="mb-1">
-                      I agree to the{' '}
-                      <a href="/terms" target="_blank" className="text-indigo-600 hover:text-indigo-700 font-medium">
-                        Terms of Service
-                      </a>{' '}
-                      and{' '}
-                      <a href="/privacy" target="_blank" className="text-indigo-600 hover:text-indigo-700 font-medium">
-                        Privacy Policy
-                      </a>
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      Required to create an account and use our services
-                    </p>
-                  </div>
-                </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
+                <p className="text-xs sm:text-sm text-blue-800">
+                  By creating an account, you agree to our{' '}
+                  <a href="/terms" target="_blank" className="text-indigo-600 hover:text-indigo-700 font-medium underline">
+                    Terms of Service
+                  </a>{' '}
+                  and{' '}
+                  <a href="/privacy" target="_blank" className="text-indigo-600 hover:text-indigo-700 font-medium underline">
+                    Privacy Policy
+                  </a>
+                  .
+                </p>
               </div>
             )}
 
             <button
               type="submit"
-              disabled={loading || (mode === 'signup' && (!acceptTerms || !fullName.trim()))}
+              disabled={loading || (mode === 'signup' && !fullName.trim())}
               className="w-full bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-sm sm:text-base"
             >
               {loading ? 'Please wait...' : mode === 'signup' ? 'Start PRAI Today' : 'Sign In'}
