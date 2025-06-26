@@ -173,7 +173,7 @@ export function Hero() {
                   <span>{user ? "PRAI Today" : "Start PRAI Today"}</span>
                 </a>
                 <span className="text-indigo-200 text-sm">
-                  • Free PRAI credit with Google signup • No credit card required • AI answers in a week - a month
+                  • Free PRAI credit with Google signup • No credit card required • AI answers in a week - month
                 </span>
               </div>
             </div>
