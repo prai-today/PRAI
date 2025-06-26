@@ -6,10 +6,12 @@
     - Calls Publast API to initiate content generation
     - Uses user-selected sites for publication
     - Accepts keywords from the analysis
+    - Validates user has a full name for publication
 
   2. Security
     - Only accessible to authenticated users
     - Validates user has publication credits
+    - Validates user has a full name for authorship
     - Protects Publast API key
 */
 
@@ -98,6 +100,20 @@ Deno.serve(async (req: Request) => {
         JSON.stringify({ success: false, error: "User profile not found" }),
         {
           status: 404,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    // Validate user has a full name for publication authorship
+    if (!profile.full_name || !profile.full_name.trim()) {
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: "Full name is required for publishing articles. Please update your profile in Settings." 
+        }),
+        {
+          status: 400,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         }
       );
@@ -209,7 +225,7 @@ Deno.serve(async (req: Request) => {
           keywords: finalKeywords,
           site_ids: siteIds,
           source_urls: [input_url],
-          author: profile.full_name || user.email?.split('@')[0] || 'Anonymous'
+          author: profile.full_name.trim()
         });
 
         // Update publication with Publast publication ID

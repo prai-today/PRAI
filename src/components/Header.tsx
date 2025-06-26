@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { LogOut, Menu, X, LayoutDashboard } from 'lucide-react';
+import { LogOut, Menu, X, LayoutDashboard, Settings } from 'lucide-react';
 
 export function Header() {
   const { user, profile, signOut } = useAuth();
@@ -16,7 +16,8 @@ export function Header() {
 
   const navigation = [
     ...(user ? [
-      { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard }
+      { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+      { name: 'Settings', href: '/settings', icon: Settings }
     ] : []),
   ];
 

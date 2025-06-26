@@ -39,13 +39,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setProfile(data);
     } else {
       // Profile doesn't exist, create one using upsert to handle race conditions
-      // Give 1 credit for new users (Google users get their credit from the trigger)
+      // For Google users, we need to ensure they have a full name
+      const fullName = user.user_metadata?.full_name || user.user_metadata?.name || null;
+      
       const { data: upsertedProfile, error: upsertError } = await supabase
         .from('profiles')
         .upsert({
           id: user.id,
           email: user.email!,
-          full_name: user.user_metadata?.full_name || null,
+          full_name: fullName,
           avatar_url: user.user_metadata?.avatar_url || null,
           free_publications_remaining: 1
         }, {
@@ -118,12 +120,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const signUpWithEmail = async (email: string, password: string, fullName: string) => {
+    if (!fullName.trim()) {
+      throw new Error('Full name is required for account creation.');
+    }
+
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: {
-          full_name: fullName
+          full_name: fullName.trim()
         }
       }
     });

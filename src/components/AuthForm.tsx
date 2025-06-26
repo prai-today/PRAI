@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { Eye, EyeOff, Mail, User } from 'lucide-react';
+import { Eye, EyeOff, Mail, User, CheckSquare, Square } from 'lucide-react';
 
 interface AuthFormProps {
   mode: 'signin' | 'signup';
@@ -13,10 +13,16 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [acceptTerms, setAcceptTerms] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleGoogleAuth = async () => {
+    if (mode === 'signup' && !acceptTerms) {
+      setError('Please accept the Terms of Service and Privacy Policy to continue.');
+      return;
+    }
+
     try {
       setLoading(true);
       setError('');
@@ -30,12 +36,23 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (mode === 'signup' && !acceptTerms) {
+      setError('Please accept the Terms of Service and Privacy Policy to continue.');
+      return;
+    }
+
+    if (mode === 'signup' && !fullName.trim()) {
+      setError('Full name is required for account creation.');
+      return;
+    }
+
     try {
       setLoading(true);
       setError('');
       
       if (mode === 'signup') {
-        await signUpWithEmail(email, password, fullName);
+        await signUpWithEmail(email, password, fullName.trim());
       } else {
         await signInWithEmail(email, password);
       }
@@ -123,7 +140,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
             {mode === 'signup' && (
               <div>
                 <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
-                  Full Name
+                  Full Name <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
@@ -133,16 +150,19 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     className="w-full pl-9 sm:pl-10 pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors text-sm sm:text-base"
-                    placeholder="Enter your full name"
+                    placeholder="Enter your full name (required for publications)"
                     required
                   />
                 </div>
+                <p className="text-xs text-gray-500 mt-1">
+                  Your name will be used as the author for published articles
+                </p>
               </div>
             )}
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email
+                Email <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
@@ -160,7 +180,7 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                Password
+                Password <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <input
@@ -183,9 +203,42 @@ export function AuthForm({ mode, redirectUrl }: AuthFormProps) {
               </div>
             </div>
 
+            {mode === 'signup' && (
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                  <button
+                    type="button"
+                    onClick={() => setAcceptTerms(!acceptTerms)}
+                    className="flex-shrink-0 mt-0.5"
+                  >
+                    {acceptTerms ? (
+                      <CheckSquare className="w-5 h-5 text-indigo-600" />
+                    ) : (
+                      <Square className="w-5 h-5 text-gray-400" />
+                    )}
+                  </button>
+                  <div className="text-sm text-gray-700">
+                    <p className="mb-1">
+                      I agree to the{' '}
+                      <a href="/terms" target="_blank" className="text-indigo-600 hover:text-indigo-700 font-medium">
+                        Terms of Service
+                      </a>{' '}
+                      and{' '}
+                      <a href="/privacy" target="_blank" className="text-indigo-600 hover:text-indigo-700 font-medium">
+                        Privacy Policy
+                      </a>
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      Required to create an account and use our services
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || (mode === 'signup' && (!acceptTerms || !fullName.trim()))}
               className="w-full bg-gradient-to-r from-indigo-500 via-purple-600 to-teal-500 text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:from-indigo-600 hover:via-purple-700 hover:to-teal-600 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-sm sm:text-base"
             >
               {loading ? 'Please wait...' : mode === 'signup' ? 'Start Praying Today 🙏' : 'Sign In'}
