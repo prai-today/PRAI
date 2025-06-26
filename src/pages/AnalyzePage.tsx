@@ -420,7 +420,7 @@ export function AnalyzePage() {
             <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6">
               <div className="mb-3 sm:mb-4">
                 <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  AI-Selected Publication Sites <span className="text-xs sm:text-sm text-gray-500">(Select 1-3 sites)</span>
+                  Selected Publication Sites <span className="text-xs sm:text-sm text-gray-500">(Select 1-3 sites)</span>
                 </h2>
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
                   <p className="text-xs sm:text-sm text-green-800">
