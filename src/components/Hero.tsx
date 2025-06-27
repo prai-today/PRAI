@@ -28,7 +28,7 @@ export function Hero() {
     <img
       src="/bolt.png"
       alt="Bolt.new"
-      className="w-20 md:w-22 lg:w-24 xl:w-28 2xl:w-32 hover:animate-spin transition-transform"
+      className="w-20 md:w-22 lg:w-24 xl:w-28 2xl:w-32 hover:animate-spin duration-4000 transition-transform"
     />
   </a>
 </div>
