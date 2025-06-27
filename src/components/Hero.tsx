@@ -25,7 +25,7 @@ export function Hero() {
 
       <div className="absolute z-100 top-16 right-4 sm:top-6 sm:right-6">
         
-      <img src="/bolt.png" alt="" className="w-16 sm:w-20 md:w-32" />
+      <img src="/bolt.png" alt="" className="w-16 sm:w-20 md:w-32 xl:w-48" />
       </div>
       {/* Enhanced background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
