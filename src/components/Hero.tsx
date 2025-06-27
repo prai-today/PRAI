@@ -23,7 +23,7 @@ export function Hero() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center overflow-hidden">
 
-      <div className="absolute z-100 top-16 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 xl:top-10 xl:right-10 hover:opacity-80">
+      <div className="absolute z-100 top-16 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 xl:top-10 xl:right-10">
         
       <img src="/bolt.png" alt="" className="w-20 md:w-24 lg:w-28 xl:w-36 2xl:w-48" />
       </div>
