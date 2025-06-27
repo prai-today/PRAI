@@ -23,12 +23,12 @@ export function Hero() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center overflow-hidden">
       
-      <div className="absolute top-16 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 xl:top-10 xl:right-10 z-[9999] pointer-events-auto">
+      <div className="absolute top-16 right-2 sm:top-6 sm:right-6 md:top-8 md:right-8 xl:top-10 xl:right-10 z-[9999] pointer-events-auto">
   <a href="https://bolt.new/" target="_blank" rel="noopener noreferrer">
     <img
       src="/bolt.png"
       alt="Bolt.new"
-      className="w-20 md:w-22 lg:w-24 xl:w-28 2xl:w-32 transition-transform hover:animate-spin-slow"
+      className="w-16 md:w-22 lg:w-24 xl:w-28 2xl:w-32 transition-transform hover:animate-spin-slow"
     />
   </a>
 </div>
