@@ -24,8 +24,8 @@ export function Hero() {
     <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center overflow-hidden">
 
       <div className="absolute z-100 top-0 right-0">
-        <p>Hellow</p>
-      <img src="/bolt.jpg" alt="" />
+        <p>Hello</p>
+      <img src="/bolt.png" alt="" />
       </div>
       {/* Enhanced background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
