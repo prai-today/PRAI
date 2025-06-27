@@ -23,8 +23,9 @@ export function Hero() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center overflow-hidden">
 
+      <div className="absolute z-100 top-0 right-0">
       <img src="bolt.jpg" alt="" />
-      
+      </div>
       {/* Enhanced background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
