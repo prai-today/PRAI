@@ -187,7 +187,7 @@ export function Hero() {
               <div className="relative">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Ready to PRAI for Recognition?</h2>
                 <p className="text-lg sm:text-xl mb-4 sm:mb-6 text-indigo-100">
-                  Join other builders and founders whose prayers have been answered
+                  PRAI Today and Get Answered!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
                   <a
