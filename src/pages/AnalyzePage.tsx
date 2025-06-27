@@ -508,7 +508,7 @@ export function AnalyzePage() {
               >
                 <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>
-                  {publishing ? 'Your Prayer is Being Answered... 🙏' : `Get Answered by AI on ${selectedSites.length} Site${selectedSites.length !== 1 ? 's' : ''} 🤖`}
+                  {publishing ? 'PRAI is publishing' : `Published on ${selectedSites.length} Site${selectedSites.length !== 1 ? 's' : ''}`}
                 </span>
               </button>
               
