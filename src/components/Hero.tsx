@@ -23,15 +23,15 @@ export function Hero() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center overflow-hidden">
 
-      <div className="absolute z-100 top-16 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 xl:top-10 xl:right-10">
-        
-      <img src="/bolt.png" alt="" className="w-20 md:w-22 lg:w-24 xl:w-28 2xl:w-32" />
-      </div>
       {/* Enhanced background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-teal-400/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      </div>
+      <div className="absolute z-100 top-16 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 xl:top-10 xl:right-10">
+        
+      <img src="/bolt.png" alt="" className="w-20 md:w-22 lg:w-24 xl:w-28 2xl:w-32" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
