@@ -67,7 +67,7 @@ export function Header() {
               <div className="flex items-center space-x-3 sm:space-x-4">
                 <div className="text-xs sm:text-sm text-gray-600 bg-gradient-to-r from-green-50 to-teal-50 px-2 sm:px-3 py-1 rounded-full border border-green-200">
                   <span className="text-green-700 font-semibold">
-                    {profile?.free_publications_remaining || 0} PR left
+                    {profile?.free_publications_remaining || 0} PRAI left
                   </span>
                 </div>
                 <div className="text-xs sm:text-sm text-gray-800 font-medium max-w-32 truncate">
