@@ -230,7 +230,7 @@ export function AnalyzePage() {
 
           <div className="text-center space-y-3 sm:space-y-4">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              {analyzing ? 'Praying for Your Website Analysis 🙏' : 'Your Prayer Has Been Heard! ✨'}
+              {analyzing ? 'PRAI for Your Website Analysis' : 'Your PRAI Has Been done! ✨'}
             </h1>
             
             <div className="flex items-center justify-center space-x-2 text-gray-600 text-sm sm:text-base">
@@ -271,7 +271,7 @@ export function AnalyzePage() {
               </div>
               
               <p className="text-xs sm:text-sm text-gray-500">
-                Your prayer is being processed... AI systems are listening 🤖
+                Your PRAI is being processed...
               </p>
             </div>
           </div>
@@ -488,7 +488,7 @@ export function AnalyzePage() {
                   ))}
                   
                   <div className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">
-                    {selectedSites.length}/3 sites selected for your prayer
+                    {selectedSites.length}/3 sites selected for publication
                    
                   </div>
                 </div>
@@ -514,7 +514,7 @@ export function AnalyzePage() {
               
               {selectedSites.length === 0 && (
                 <p className="text-xs sm:text-sm text-red-600 mt-2">
-                  Please select at least one publication site for your prayer to be answered
+                  Please select at least one publication site for publishing
                 </p>
               )}
             </div>
