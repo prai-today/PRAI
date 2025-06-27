@@ -156,7 +156,7 @@ export function Header() {
               </div>
               <div className="text-sm text-gray-600 bg-gradient-to-r from-green-50 to-teal-50 px-3 py-2 rounded-lg border border-green-200 mx-3">
                 <span className="text-green-700 font-semibold">
-                  {profile?.free_publications_remaining || 0} prayers left
+                  {profile?.free_publications_remaining || 0} PRAI left
                 </span>
               </div>
               <button
