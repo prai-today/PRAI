@@ -23,7 +23,7 @@ export function Hero() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center overflow-hidden">
 
-      <div className="absolute z-100 top-16 right-4 sm:top-6 sm:right-6 md:top-10 md:right-10 xl:top-16 xl:right-16 animate-spin duration-4000">
+      <div className="absolute z-100 top-16 right-4 sm:top-6 sm:right-6 md:top-10 md:right-10 xl:top-16 xl:right-16 animate-spin duration-8000">
         
       <img src="/bolt.png" alt="" className="w-20 md:w-28 lg:w-32 xl:w-36 2xl:w-48" />
       </div>
