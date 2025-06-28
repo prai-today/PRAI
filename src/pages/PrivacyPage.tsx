@@ -158,7 +158,7 @@ export function PrivacyPage() {
                   <strong>Email:</strong> <a href="mailto:jay@prai.today" className="text-indigo-600 hover:text-indigo-700">jay@prai.today</a>
                 </p>
                 <p className="text-gray-700">
-                  <strong>General Support:</strong> <a href="mailto:help@prai.today" className="text-indigo-600 hover:text-indigo-700">help@prai.today</a>
+                  <strong>General Support:</strong> <a href="mailto:jay@prai.today" className="text-indigo-600 hover:text-indigo-700">jay@prai.today</a>
                 </p>
               </div>
             </section>
