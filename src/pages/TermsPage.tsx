@@ -225,7 +225,7 @@ export function TermsPage() {
                     <strong>Email:</strong> <a href="mailto:jay@prai.today" className="text-indigo-600 hover:text-indigo-700">jay@prai.today</a>
                   </p>
                   <p className="text-blue-800 text-sm mt-2">
-                    You are responsible for contacting help@prai.today for any issues related to our service.
+                    You are responsible for contacting jay@prai.today for any issues related to our service.
                   </p>
                 </div>
               </div>
