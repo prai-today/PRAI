@@ -208,7 +208,7 @@ export function DashboardPage() {
                   href="mailto:jay@prai.today"
                   className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all text-xs sm:text-sm"
                 >
-                  <span>Ask for more credit to Jay</span>
+                  <span>Ask Jay for more credit</span>
                 </a>
               </div>
             ) : (
