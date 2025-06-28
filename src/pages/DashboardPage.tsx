@@ -202,13 +202,13 @@ export function DashboardPage() {
                 </div>
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">No PRAI Credits Left</h3>
                 <p className="text-gray-600 text-xs sm:text-sm mb-4">
-                  You've used all your free PRAI credits. Contact us to get more credits.
+                  You've used all your free PRAI credits. Contact jay@prai.today to get more credits.
                 </p>
                 <a
-                  href="mailto:help@prai.today"
+                  href="mailto:jay@prai.today"
                   className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all text-xs sm:text-sm"
                 >
-                  <span>Contact Support</span>
+                  <span>Contact Jay</span>
                 </a>
               </div>
             ) : (
