@@ -79,10 +79,11 @@ export function Footer() {
                   <span>Open Source</span>
                 </a>
               </li>
+              <li>
+                <a href="https://www.producthunt.com/products/prai-today-get-recognized-by-ai?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-prai&#0045;today&#0045;get&#0045;recognized&#0045;by&#0045;ai" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=985001&theme=light&t=1751091443953" alt="PRAI&#0046;TODAY&#0032;&#0045;&#0032;Get&#0032;Recognized&#0032;by&#0032;AI - PR&#0032;AI&#0032;agent&#0032;that&#0032;does&#0032;research&#0044;&#0032;optimization&#0044;&#0032;and&#0032;publishing | Product Hunt" className="w-[256px] h-[54px]" width="250" height="54" /></a>
+              </li>
             </ul>
-            <div>
-  <a href="https://www.producthunt.com/products/prai-today-get-recognized-by-ai?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-prai&#0045;today&#0045;get&#0045;recognized&#0045;by&#0045;ai" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=985001&theme=light&t=1751091443953" alt="PRAI&#0046;TODAY&#0032;&#0045;&#0032;Get&#0032;Recognized&#0032;by&#0032;AI - PR&#0032;AI&#0032;agent&#0032;that&#0032;does&#0032;research&#0044;&#0032;optimization&#0044;&#0032;and&#0032;publishing | Product Hunt" className="w-[256px] h-[54px]" width="250" height="54" /></a>
-</div>
+            
           </div>
         </div>
 
