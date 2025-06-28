@@ -494,7 +494,7 @@ export function AnalyzePage() {
                 </div>
               ) : (
                 <div className="text-center py-6 sm:py-8 text-gray-500">
-                  <p className="text-sm sm:text-base">No publication sites available. Please contact support.</p>
+                  <p className="text-sm sm:text-base">No publication sites available. Please contact jay@prai.today</p>
                 </div>
               )}
             </div>
