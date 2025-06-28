@@ -204,7 +204,7 @@ export function Hero() {
                     <span>PRAI Today</span>
                   </a>
                   <span className="text-indigo-200 text-xs sm:text-sm text-center">
-                    • Free PRAI credit with Google signup • No credit card required • AI answers in a week - month
+                    • Free PRAI credit with Google signup • No credit card required •
                   </span>
                 </div>
               </div>
