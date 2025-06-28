@@ -73,6 +73,8 @@ export function PublicationStatus({
     switch (status) {
       case 'completed':
         return <CheckCircle className="w-5 h-5 text-green-500" />;
+      case 'published':
+        return <CheckCircle className="w-5 h-5 text-green-500" />;
       case 'failed':
         return <XCircle className="w-5 h-5 text-red-500" />;
       default:
@@ -83,6 +85,8 @@ export function PublicationStatus({
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
+        return 'text-green-700 bg-green-50 border-green-200';
+      case 'published':
         return 'text-green-700 bg-green-50 border-green-200';
       case 'failed':
         return 'text-red-700 bg-red-50 border-red-200';
