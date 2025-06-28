@@ -155,7 +155,7 @@ export function PrivacyPage() {
               </p>
               <div className="space-y-2">
                 <p className="text-gray-700">
-                  <strong>Email:</strong> <a href="mailto:privacy@prai.today" className="text-indigo-600 hover:text-indigo-700">privacy@prai.today</a>
+                  <strong>Email:</strong> <a href="mailto:jay@prai.today" className="text-indigo-600 hover:text-indigo-700">jay@prai.today</a>
                 </p>
                 <p className="text-gray-700">
                   <strong>General Support:</strong> <a href="mailto:help@prai.today" className="text-indigo-600 hover:text-indigo-700">help@prai.today</a>
