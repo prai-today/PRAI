@@ -185,14 +185,14 @@ export function SettingsPage() {
             <div className="space-y-2 text-sm text-gray-600">
               <p>
                 <strong>Support:</strong>{' '}
-                <a href="mailto:help@prai.today" className="text-indigo-600 hover:text-indigo-700">
-                  help@prai.today
+                <a href="mailto:jay@prai.today" className="text-indigo-600 hover:text-indigo-700">
+                  jay@prai.today
                 </a>
               </p>
               <p>
                 <strong>Privacy:</strong>{' '}
-                <a href="mailto:privacy@prai.today" className="text-indigo-600 hover:text-indigo-700">
-                  privacy@prai.today
+                <a href="mailto:jay@prai.today" className="text-indigo-600 hover:text-indigo-700">
+                  jay@prai.today
                 </a>
               </p>
               <p>
