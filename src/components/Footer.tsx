@@ -62,9 +62,9 @@ export function Footer() {
             <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-white">Get Connected</h4>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <a href="mailto:hello@prai.today" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2 text-sm sm:text-base">
+                <a href="mailto:jay@prai.today" className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2 text-sm sm:text-base">
                   <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span>hello@prai.today</span>
+                  <span>jay@prai.today</span>
                 </a>
               </li>
               <li>
