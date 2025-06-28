@@ -222,7 +222,7 @@ export function TermsPage() {
                     <strong>For all issues, questions, or support needs, please contact:</strong>
                   </p>
                   <p className="text-blue-800">
-                    <strong>Email:</strong> <a href="mailto:help@prai.today" className="text-indigo-600 hover:text-indigo-700">help@prai.today</a>
+                    <strong>Email:</strong> <a href="mailto:jay@prai.today" className="text-indigo-600 hover:text-indigo-700">jay@prai.today</a>
                   </p>
                   <p className="text-blue-800 text-sm mt-2">
                     You are responsible for contacting help@prai.today for any issues related to our service.
