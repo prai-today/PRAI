@@ -202,7 +202,7 @@ export function DashboardPage() {
                 </div>
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">No PRAI Credits Left</h3>
                 <p className="text-gray-600 text-xs sm:text-sm mb-4">
-                  Contact jay@prai.today to get more credits. Just send an email from your Google email, and you will get more credits!
+                  Just send an email to jay@prai.today to get more credits! Really that easy.
                 </p>
                 <a
                   href="mailto:jay@prai.today"
