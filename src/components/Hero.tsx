@@ -201,7 +201,7 @@ export function Hero() {
                     className="bg-white text-indigo-600 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center space-x-2 text-sm sm:text-base w-full sm:w-auto justify-center"
                   >
                     <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span>Start PRAI Today</span>
+                    <span>PRAI Today</span>
                   </a>
                   <span className="text-indigo-200 text-xs sm:text-sm text-center">
                     • Free PRAI credit with Google signup • No credit card required • AI answers in a week - month
