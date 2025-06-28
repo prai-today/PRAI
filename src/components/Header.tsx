@@ -67,7 +67,7 @@ export function Header() {
               <div className="flex items-center space-x-3 sm:space-x-4">
                 <div className="text-xs sm:text-sm text-gray-600 bg-gradient-to-r from-green-50 to-teal-50 px-2 sm:px-3 py-1 rounded-full border border-green-200">
                   <span className="text-green-700 font-semibold">
-                    {profile?.free_publications_remaining || 0} credits left
+                    {profile?.free_publications_remaining || 0} PR left
                   </span>
                 </div>
                 <div className="text-xs sm:text-sm text-gray-800 font-medium max-w-32 truncate">
@@ -156,7 +156,7 @@ export function Header() {
               </div>
               <div className="text-sm text-gray-600 bg-gradient-to-r from-green-50 to-teal-50 px-3 py-2 rounded-lg border border-green-200 mx-3">
                 <span className="text-green-700 font-semibold">
-                  {profile?.free_publications_remaining || 0} credits left
+                  {profile?.free_publications_remaining || 0} PR left
                 </span>
               </div>
               <button
