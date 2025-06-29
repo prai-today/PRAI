@@ -6,10 +6,23 @@ export function Hero() {
   const { user } = useAuth();
   const [url, setUrl] = useState('');
 
+  const normalizeUrl = (inputUrl: string): string => {
+    const trimmedUrl = inputUrl.trim();
+    if (!trimmedUrl) return '';
+    
+    // If URL doesn't start with http:// or https://, prepend https://
+    if (!trimmedUrl.match(/^https?:\/\//i)) {
+      return `https://${trimmedUrl}`;
+    }
+    
+    return trimmedUrl;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (url.trim()) {
-      const encodedUrl = encodeURIComponent(url.trim());
+      const normalizedUrl = normalizeUrl(url);
+      const encodedUrl = encodeURIComponent(normalizedUrl);
       if (user) {
         // User is authenticated, proceed to analyze
         window.location.href = `/analyze?url=${encodedUrl}`;
@@ -108,8 +121,8 @@ export function Hero() {
                       <div className="flex items-center space-x-3 flex-1 px-3 sm:px-0">
                         <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 ml-0 sm:ml-4" />
                         <input
-                          type="url"
-                          placeholder="Enter your website URL here"
+                          type="text"
+                          placeholder="Enter your website URL here (e.g., example.com)"
                           value={url}
                           onChange={(e) => setUrl(e.target.value)}
                           className="flex-1 py-3 sm:py-4 px-1 sm:px-2 text-base sm:text-lg bg-transparent border-none outline-none placeholder-gray-400"
@@ -128,7 +141,7 @@ export function Hero() {
                 </div>
                 
                 <p className="text-xs sm:text-sm text-gray-500 px-4">
-                  Sign up with Google to get 1 free PRAI credit!
+                  Sign up with Google to get 1 free PRAI credit! No need to include https://
                 </p>
               </form>
             </div>
