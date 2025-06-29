@@ -81,7 +81,7 @@ export function Hero() {
               </h1>
               
               <p className="text-base sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
-                <strong>Prai.Today</strong> is non-profit & open-source project to help builders, founders, and SMB owners get their products 
+                <strong>Prai.Today</strong> is PR AI agent to help builders, founders, and SMB owners get their products 
                 recognized by AI and search engines through optimized content generation and strategic publication.
               </p>
               <p className="text-xs sm:text-sm font-semibold text-gray-400 px-4">
