@@ -26,7 +26,7 @@ export function TermsPage() {
                 <span>About Our Service</span>
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                PRAI.TODAY is a non-profit, open-source project that helps builders, SMB owners, and startup founders get their products recognized by AI systems and search engines. By using our service, you agree to these Terms of Service ("Terms"). Please read them carefully.
+                PRAI.TODAY is a PR AI agent that helps builders, SMB owners, and startup founders get their products recognized by AI systems and search engines. By using our service, you agree to these Terms of Service ("Terms"). Please read them carefully.
               </p>
             </section>
 
