@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { PolarCheckout } from '../components/PolarCheckout';
 import { Plus, Clock, CheckCircle, XCircle, ExternalLink, Sparkles, TrendingUp, Heart, Globe, ArrowRight } from 'lucide-react';
 import { Publication } from '../types/database';
 import { supabase } from '../lib/supabase';
 
 export function DashboardPage() {
-  const { user, profile, loading } = useAuth();
+  const { user, profile, loading, refreshProfile } = useAuth();
   const [publications, setPublications] = useState<Publication[]>([]);
   const [loadingPublications, setLoadingPublications] = useState(true);
   const [url, setUrl] = useState('');
@@ -55,6 +56,13 @@ export function DashboardPage() {
       const encodedUrl = encodeURIComponent(url.trim());
       window.location.href = `/analyze?url=${encodedUrl}`;
     }
+  };
+
+  const handlePurchaseSuccess = async () => {
+    // Refresh the user profile to get updated credits
+    await refreshProfile();
+    // Optionally refresh publications as well
+    await fetchPublications();
   };
 
   const getStatusIcon = (status: string) => {
@@ -196,20 +204,31 @@ export function DashboardPage() {
 
           <div className="p-4 sm:p-6">
             {profile?.free_publications_remaining === 0 ? (
-              <div className="text-center py-6 sm:py-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500" />
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                {/* Purchase Credits Card */}
+                <PolarCheckout
+                  variant="card"
+                  onSuccess={handlePurchaseSuccess}
+                  userEmail={user.email || undefined}
+                  userId={user.id}
+                />
+                
+                {/* Alternative Contact Option */}
+                <div className="text-center py-6 sm:py-8">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Need Help?</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm mb-4">
+                    Have questions or need assistance? Contact Jay directly for personalized support.
+                  </p>
+                  <a
+                    href="mailto:jay@prai.today"
+                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all text-xs sm:text-sm"
+                  >
+                    <span>Contact Jay</span>
+                  </a>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">No PRAI Credits Left</h3>
-                <p className="text-gray-600 text-xs sm:text-sm mb-4">
-                  Just send an email to jay@prai.today to get more credit. Really that's it!
-                </p>
-                <a
-                  href="mailto:jay@prai.today"
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all text-xs sm:text-sm"
-                >
-                  <span>Ask Jay for more credit</span>
-                </a>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
