@@ -90,7 +90,7 @@ export function Hero() {
               
               <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 max-w-3xl mx-auto border border-indigo-200 mx-4">
                 <p className="text-sm sm:text-lg text-gray-700 font-medium mb-2 sm:mb-3">
-                  <strong>Published via PRAI.TODAY</strong> → <strong>Get recognized by AI</strong>
+                  <strong>Published via PRAI.TODAY</strong> → <strong>Get recognized by AI in weeks</strong>
                 </p>
                 <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600">
                   <div className="flex items-center justify-center space-x-2">
