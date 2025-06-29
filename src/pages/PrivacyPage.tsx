@@ -26,7 +26,7 @@ export function PrivacyPage() {
                 <span>About PRAI.TODAY</span>
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                PRAI.TODAY is a non-profit, open-source project designed to help builders, SMB owners, and startup founders get their products recognized by AI systems and search engines through intelligent content generation and strategic publication. We are committed to protecting your privacy while providing this valuable service.
+                PRAI.TODAY is a PR AI agent designed to help builders, SMB owners, and startup founders get their products recognized by AI systems and search engines through intelligent content generation and strategic publication. We are committed to protecting your privacy while providing this valuable service.
               </p>
             </section>
 
